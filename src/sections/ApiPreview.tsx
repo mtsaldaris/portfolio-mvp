@@ -5,14 +5,14 @@ import { apiList } from '@/constants/apis'
 import ApiCard from '@/components/ApiCard'
 
 export default function ApiPreview() {
-  const [responses, setResponses] = useState<Record<string, any>>({})
+  const [responses, setResponses] = useState<Record<string, unknown>>({})
 
   const handleApiAction = async (slug: string, endpoint: string) => {
     try {
       const response = await fetch(endpoint)
       const data = await response.json()
       setResponses(prev => ({ ...prev, [slug]: data }))
-    } catch (error) {
+    } catch {
       setResponses(prev => ({ ...prev, [slug]: { error: 'Failed to fetch data' } }))
     }
   }

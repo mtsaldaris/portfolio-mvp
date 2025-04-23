@@ -36,7 +36,7 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+          I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
         </motion.p>
 
         <motion.div
