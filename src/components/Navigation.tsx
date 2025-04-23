@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useTheme } from '@/context/ThemeContext'
 import { useEffect, useState } from 'react'
 import { Github, Linkedin, Mail, Menu, ArrowUp } from 'lucide-react'
 import ThemeToggle from './ThemeToggle'
