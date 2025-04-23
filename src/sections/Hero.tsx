@@ -18,18 +18,18 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="space-y-8"
+          className="space-y-8 order-2 md:order-1"
         >
           <div className="space-y-4">
-            <h1 className="text-4xl md:text-5xl font-bold text-brand-text dark:text-brand-dark-text">
+            <h1 className="text-4xl md:text-5xl font-bold text-brand-text dark:text-brand-dark-text text-center md:text-left">
               Hey, I&apos;m <span className="text-brand-primary dark:text-brand-dark-primary">Myron</span>
             </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold text-brand-muted dark:text-brand-dark-muted">
+            <h2 className="text-2xl md:text-3xl font-semibold text-brand-muted dark:text-brand-dark-muted text-center md:text-left">
               <span className="text-brand-primary dark:text-brand-dark-primary">{"{ "}</span>
               Full Stack
-              <span className="text-brand-primary dark:text-brand-dark-primary">{" }"}</span> Developer
+              <span className="text-brand-primary dark:text-brand-dark-primary"> {"}"}</span> Developer
             </h2>
-            <p className="text-lg text-brand-muted dark:text-brand-dark-muted max-w-lg">
+            <p className="text-lg text-brand-muted dark:text-brand-dark-muted max-w-lg mx-auto md:mx-0 text-center md:text-left">
               With expertise in <span className="text-brand-primary dark:text-brand-dark-primary">Node.js</span>, 
               <span className="text-brand-primary dark:text-brand-dark-primary"> React</span>, and 
               <span className="text-brand-primary dark:text-brand-dark-primary"> TypeScript</span>, 
@@ -38,42 +38,8 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* Social Links */}
-          <div className="flex space-x-6">
-            <motion.a
-              href="https://github.com/myrontsaldaris"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="text-brand-text dark:text-brand-dark-text hover:text-brand-primary dark:hover:text-brand-dark-primary transition-colors"
-            >
-              <FaGithub className="w-6 h-6" />
-            </motion.a>
-            <motion.a
-              href="https://linkedin.com/in/myron-tsaldaris"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="text-brand-text dark:text-brand-dark-text hover:text-brand-primary dark:hover:text-brand-dark-primary transition-colors"
-            >
-              <FaLinkedin className="w-6 h-6" />
-            </motion.a>
-            <motion.a
-              href="https://twitter.com/myrontsaldaris"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="text-brand-text dark:text-brand-dark-text hover:text-brand-primary dark:hover:text-brand-dark-primary transition-colors"
-            >
-              <FaTwitter className="w-6 h-6" />
-            </motion.a>
-          </div>
-
           {/* Stats Grid */}
-          <div className="grid grid-cols-2 gap-4 max-w-md">
+          <div className="grid grid-cols-2 gap-4 max-w-md mx-auto md:mx-0">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -100,7 +66,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative"
+          className="relative order-1 md:order-2 -mb-4 md:mb-0"
         >
           {/* Circular frame for portrait */}
           <div className="relative w-full max-w-[480px] mx-auto aspect-square">
@@ -162,29 +128,6 @@ export default function Hero() {
                 className="w-full h-full object-cover"
               />
             </div>
-
-            {/* Code icon */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-16 h-16 bg-brand-primary dark:bg-brand-dark-primary rounded-2xl flex items-center justify-center shadow-lg"
-              style={{
-                boxShadow: "0 12px 36px -10px rgba(0, 0, 0, 0.25)",
-                border: '2px solid rgba(255,255,255,0.1)',
-              }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="w-7 h-7 text-white"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 8.25l3.75 3.75-3.75 3.75M7.5 15.75 3.75 12l3.75-3.75" />
-              </svg>
-            </motion.div>
           </div>
         </motion.div>
       </div>
