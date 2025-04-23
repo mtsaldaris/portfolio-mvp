@@ -49,7 +49,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="p-3 md:p-4 rounded-lg bg-[#1a1a1a] border border-[#333333] flex flex-col items-start gap-1"
+              className="p-3 md:p-4 rounded-lg bg-white/10 hover:bg-white/20 dark:bg-[#1a1a1a]/50 dark:hover:bg-[#1a1a1a]/70 border border-[#333333]/10 dark:border-[#333333]/30 backdrop-blur-sm transition-colors flex flex-col items-start gap-1"
             >
               <div className="flex items-center gap-2">
                 <svg className="w-5 h-5 text-brand-primary dark:text-brand-dark-primary" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -58,14 +58,14 @@ export default function Hero() {
                 </svg>
                 <p className="text-sm font-semibold text-brand-primary dark:text-brand-dark-primary">Enterprise-Grade</p>
               </div>
-              <p className="text-xs text-gray-400">Shipping real software used by thousands. Secure, scalable, and production-ready.</p>
+              <p className="text-xs text-gray-600 dark:text-gray-400">Shipping real software used by thousands. Secure, scalable, and production-ready.</p>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="p-3 md:p-4 rounded-lg bg-[#1a1a1a] border border-[#333333] flex flex-col items-start gap-1"
+              className="p-3 md:p-4 rounded-lg bg-white/10 hover:bg-white/20 dark:bg-[#1a1a1a]/50 dark:hover:bg-[#1a1a1a]/70 border border-[#333333]/10 dark:border-[#333333]/30 backdrop-blur-sm transition-colors flex flex-col items-start gap-1"
             >
               <div className="flex items-center gap-2">
                 <svg className="w-5 h-5 text-brand-primary dark:text-brand-dark-primary" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -73,14 +73,14 @@ export default function Hero() {
                 </svg>
                 <p className="text-sm font-semibold text-brand-primary dark:text-brand-dark-primary">API-Centric</p>
               </div>
-              <p className="text-xs text-gray-400">I design clear, consistent APIs that form the backbone of modern applications.</p>
+              <p className="text-xs text-gray-600 dark:text-gray-400">I design clear, consistent APIs that form the backbone of modern applications.</p>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="p-3 md:p-4 rounded-lg bg-[#1a1a1a] border border-[#333333] flex flex-col items-start gap-1"
+              className="p-3 md:p-4 rounded-lg bg-white/10 hover:bg-white/20 dark:bg-[#1a1a1a]/50 dark:hover:bg-[#1a1a1a]/70 border border-[#333333]/10 dark:border-[#333333]/30 backdrop-blur-sm transition-colors flex flex-col items-start gap-1"
             >
               <div className="flex items-center gap-2">
                 <svg className="w-5 h-5 text-brand-primary dark:text-brand-dark-primary" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -88,7 +88,7 @@ export default function Hero() {
                 </svg>
                 <p className="text-sm font-semibold text-brand-primary dark:text-brand-dark-primary">Built to Grow</p>
               </div>
-              <p className="text-xs text-gray-400">Always evolving. I’m here to learn, level up, and build things that matter.</p>
+              <p className="text-xs text-gray-600 dark:text-gray-400">Always evolving. I'm here to learn, level up, and build things that matter.</p>
             </motion.div>
           </div>
         </motion.div>
@@ -121,7 +121,7 @@ export default function Hero() {
             />
             
             {/* Portrait container */}
-            <div className="absolute inset-0 rounded-full bg-[#1a1a1a] border border-[#333333] overflow-hidden">
+            <div className="absolute inset-0 rounded-full bg-[#1a1a1a]/20 dark:bg-[#1a1a1a]/50 border border-[#333333]/10 dark:border-[#333333]/30 overflow-hidden">
               <img
                 src="/images/myron-avatar.png"
                 alt="Myron's portrait"

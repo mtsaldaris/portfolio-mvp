@@ -15,6 +15,7 @@ import {
   SiTailwindcss,
   SiTypescript
 } from 'react-icons/si';
+import React from 'react';
 
 const skills = [
   { icon: FaJava, name: 'Java' },
@@ -55,23 +56,19 @@ export default function SkillsRoulette() {
             },
           }}
         >
-          {extendedSkills.map((skill, index) => (
-            <motion.div
-              key={index}
-              className="flex items-center gap-2 px-3 py-2 rounded-lg
-                       bg-[#1a1a1a] dark:bg-[#1a1a1a]
-                       border border-[#333333]
-                       hover:border-brand-primary/50 dark:hover:border-brand-dark-primary/50
-                       transition-all duration-300
-                       min-w-fit"
-              whileHover={{ y: -2 }}
-            >
-              <skill.icon className="w-5 h-5 text-brand-primary dark:text-brand-dark-primary" />
-              <span className="text-sm font-medium text-gray-200 whitespace-nowrap pr-1">
-                {skill.name}
-              </span>
-            </motion.div>
-          ))}
+          <div className="flex space-x-4">
+            {skills.map((skill, index) => (
+              <div
+                key={index}
+                className="min-w-[120px] px-3 py-1.5 flex items-center gap-2 rounded-lg bg-white/10 hover:bg-white/20 dark:bg-[#1a1a1a]/50 dark:hover:bg-[#1a1a1a]/70 border border-[#333333]/10 dark:border-[#333333]/30 backdrop-blur-sm transition-colors"
+              >
+                {React.createElement(skill.icon, {
+                  className: "w-5 h-5 text-brand-primary dark:text-brand-dark-primary"
+                })}
+                <span className="text-sm text-brand-text dark:text-brand-dark-text whitespace-nowrap">{skill.name}</span>
+              </div>
+            ))}
+          </div>
         </motion.div>
 
         {/* Gradient overlays for smooth fade effect */}
