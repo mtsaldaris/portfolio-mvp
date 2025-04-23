@@ -39,7 +39,7 @@ export default function Navigation() {
       } else if (scrollPosition >= projectsSection.offsetTop && scrollPosition < projectsBottom) {
         setActiveSection('projects')
       }
-      
+
       const contactTop = contactRect.top
       const contactBottom = contactRect.bottom
       if (contactTop < window.innerHeight && contactBottom > 0) {
@@ -86,16 +86,33 @@ export default function Navigation() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo/Name */}
+
+            {/* Enhanced terminal-style typing animation */}
             <motion.div
-              className="flex items-center space-x-2"
-              whileHover={{ scale: 1.05 }}
-              onClick={() => scrollToSection('home')}
+              className="flex items-center justify-center h-10 px-4 border border-brand-primary dark:border-brand-dark-primary rounded-md font-mono text-base font-medium text-brand-primary dark:text-brand-dark-primary bg-transparent"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
             >
-              <div className="flex items-center space-x-2 cursor-pointer">
-                <div className="p-1.5 border border-brand-primary dark:border-brand-dark-primary rounded-md">
-                  <Terminal className="w-5 h-5 stroke-[2.5] text-brand-primary dark:text-brand-dark-primary" />
-                </div>
-                <span className="text-xl font-bold text-gradient-primary">myron.dev</span>
+              <div className="flex items-center space-x-0.5">
+                {['>', ' ', 'm', 'y', 'r', 'o', 'n', '.', 'd', 'e', 'v'].map((char, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.1 * index }}
+                  >
+                    {char}
+                  </motion.span>
+                ))}
+                <motion.span
+                  className="animate-blink ml-1"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1.2 }}
+                >
+                  █
+                </motion.span>
               </div>
             </motion.div>
 
@@ -105,11 +122,10 @@ export default function Navigation() {
                 <motion.button
                   key={section.id}
                   onClick={() => scrollToSection(section.id)}
-                  className={`relative px-3 py-2 text-sm font-medium transition-colors ${
-                    activeSection === section.id
+                  className={`relative px-3 py-2 text-sm font-medium transition-colors ${activeSection === section.id
                       ? 'text-brand-primary dark:text-brand-dark-primary'
                       : 'text-brand-text dark:text-brand-dark-text hover:text-brand-primary dark:hover:text-brand-dark-primary'
-                  }`}
+                    }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -181,11 +197,10 @@ export default function Navigation() {
                 <motion.button
                   key={section.id}
                   onClick={() => scrollToSection(section.id)}
-                  className={`w-full text-left px-3 py-2 text-sm font-medium transition-colors ${
-                    activeSection === section.id
+                  className={`w-full text-left px-3 py-2 text-sm font-medium transition-colors ${activeSection === section.id
                       ? 'text-brand-primary dark:text-brand-dark-primary'
                       : 'text-brand-text dark:text-brand-dark-text hover:text-brand-primary dark:hover:text-brand-dark-primary'
-                  }`}
+                    }`}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
