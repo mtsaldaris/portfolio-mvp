@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 
 export default function Hero() {
   return (
