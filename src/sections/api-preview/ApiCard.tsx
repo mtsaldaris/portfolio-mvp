@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import Button from './Button'
-import TagBadge from './TagBadge'
+import Button from '../../components/Button'
+import TagBadge from '../../components/TagBadge'
 import { motion } from 'framer-motion'
 
 interface ApiCardProps {
@@ -11,8 +11,8 @@ interface ApiCardProps {
   endpoint: string
   tags: string[]
   buttonText?: string
-  onAction?: () => Promise<any>
-  response?: any
+  onAction?: () => Promise<unknown>
+  response?: unknown
 }
 
 interface QuoteResponse {
@@ -89,7 +89,7 @@ export default function ApiCard({
         <div className="space-y-3">
           <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg">
             <p className="text-lg italic text-gray-900 dark:text-white">
-              "{quoteResponse.data.quote}"
+              &quot;{quoteResponse.data.quote}&quot;
             </p>
             <div className="mt-2 flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
               <span>{quoteResponse.data.source}</span>

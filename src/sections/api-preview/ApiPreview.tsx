@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { apiList } from '@/constants/apis'
-import ApiCard from '@/components/ApiCard'
+import ApiCard from '@/sections/api-preview/ApiCard'
 
 export default function ApiPreview() {
   const [responses, setResponses] = useState<Record<string, unknown>>({})

@@ -14,7 +14,6 @@ const sections = [
 ]
 
 export default function Navigation() {
-  const { theme } = useTheme()
   const [activeSection, setActiveSection] = useState('home')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [showScrollTop, setShowScrollTop] = useState(false)
