@@ -13,12 +13,12 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
 // Helper function to get initial theme
 const getInitialTheme = (): Theme => {
-  if (typeof window === 'undefined') return 'light'
+  if (typeof window === 'undefined') return 'dark'
   
   const savedTheme = localStorage.getItem('theme') as Theme
   if (savedTheme) return savedTheme
 
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  return 'dark' // Default to dark mode
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
