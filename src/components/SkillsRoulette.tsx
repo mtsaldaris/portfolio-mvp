@@ -57,7 +57,7 @@ export default function SkillsRoulette() {
           }}
         >
           <div className="flex space-x-4">
-            {skills.map((skill, index) => (
+            {extendedSkills.map((skill, index) => (
               <div
                 key={index}
                 className="min-w-[120px] px-3 py-1.5 flex items-center gap-2 rounded-lg bg-white/10 hover:bg-white/20 dark:bg-[#1a1a1a]/50 dark:hover:bg-[#1a1a1a]/70 border border-[#333333]/10 dark:border-[#333333]/30 backdrop-blur-sm transition-colors"

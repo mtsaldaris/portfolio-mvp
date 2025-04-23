@@ -107,13 +107,13 @@ export default function WhatIDo() {
             }}
           >
             {/* Card */}
-            <div className={`relative h-full p-6 rounded-2xl bg-[#1a1a1a] border ${
-              index === activeStep && !isComplete ? 'border-brand-primary shadow-lg shadow-brand-primary/10' : 'border-[#333333]'
-            } transition-all duration-500 overflow-hidden`}>
+            <div className={`relative h-full p-6 rounded-2xl bg-white/10 hover:bg-white/20 dark:bg-[#1a1a1a]/50 dark:hover:bg-[#1a1a1a]/70 border ${
+              index === activeStep && !isComplete ? 'border-brand-primary dark:border-brand-dark-primary shadow-lg shadow-brand-primary/10' : 'border-[#333333]/10 dark:border-[#333333]/30'
+            } backdrop-blur-sm transition-all duration-500 overflow-hidden`}>
               {/* Purple haze background for active card */}
               {index === activeStep && activeStep !== -1 && !isComplete && (
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-tr from-purple-500/5 via-purple-500/10 to-transparent"
+                  className="absolute inset-0 bg-gradient-to-tr from-brand-primary/5 via-brand-primary/10 to-transparent dark:from-brand-dark-primary/5 dark:via-brand-dark-primary/10"
                   initial={{ y: "100%" }}
                   animate={{ y: "0%" }}
                   transition={{ 
@@ -136,12 +136,12 @@ export default function WhatIDo() {
                   ease: "easeInOut"
                 }}
               >
-                <div className={`w-14 h-14 rounded-xl bg-brand-primary/5 dark:bg-brand-dark-primary/5 
+                <div className={`w-14 h-14 rounded-xl bg-white/10 dark:bg-[#1a1a1a]/50 
                               flex items-center justify-center backdrop-blur-sm
                               transition-all duration-500 ease-out
-                              ${index === activeStep && !isComplete ? 'ring-2 ring-brand-primary/50 ring-offset-4 ring-offset-[#1a1a1a]' : ''}`}>
+                              ${index === activeStep && !isComplete ? 'ring-2 ring-brand-primary/50 dark:ring-brand-dark-primary/50 ring-offset-4 ring-offset-transparent' : ''}`}>
                   <step.icon className={`w-7 h-7 transition-colors duration-500 ${
-                    index === activeStep && !isComplete ? 'text-brand-primary' : 'text-brand-muted'
+                    index === activeStep && !isComplete ? 'text-brand-primary dark:text-brand-dark-primary' : 'text-brand-text/60 dark:text-brand-dark-text/60'
                   }`} />
                 </div>
               </motion.div>
@@ -154,11 +154,11 @@ export default function WhatIDo() {
                 className="relative"
               >
                 <h3 className={`text-xl font-semibold mb-3 transition-colors duration-500 ${
-                  index === activeStep && !isComplete ? 'text-brand-primary' : ''
+                  index === activeStep && !isComplete ? 'text-brand-primary dark:text-brand-dark-primary' : 'text-brand-text dark:text-brand-dark-text'
                 }`}>
                   {step.title}
                 </h3>
-                <p className="text-brand-muted dark:text-brand-dark-muted mb-4 leading-relaxed">
+                <p className="text-brand-text/70 dark:text-brand-dark-text/70 mb-4 leading-relaxed">
                   {step.description}
                 </p>
 
@@ -168,8 +168,8 @@ export default function WhatIDo() {
                       key={skill}
                       className={`px-3 py-1 text-sm rounded-full transition-all duration-500
                                 ${index === activeStep && !isComplete
-                                  ? 'bg-brand-primary/20 text-brand-primary ring-1 ring-brand-primary/30' 
-                                  : 'bg-brand-primary/5 text-brand-muted'}`}
+                                  ? 'bg-brand-primary/20 dark:bg-brand-dark-primary/20 text-brand-primary dark:text-brand-dark-primary ring-1 ring-brand-primary/30 dark:ring-brand-dark-primary/30' 
+                                  : 'bg-white/10 dark:bg-[#1a1a1a]/30 text-brand-text/70 dark:text-brand-dark-text/70'}`}
                     >
                       {skill}
                     </span>
