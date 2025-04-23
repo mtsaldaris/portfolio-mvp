@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import { Github, Linkedin, Mail, Menu, ArrowUp, Terminal } from 'lucide-react'
+import { Github, Linkedin, Mail, Menu, ArrowUp } from 'lucide-react'
 import ThemeToggle from './ThemeToggle'
 
 const sections = [
