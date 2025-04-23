@@ -88,7 +88,7 @@ export default function Hero() {
                 </svg>
                 <p className="text-sm font-semibold text-brand-primary dark:text-brand-dark-primary">Built to Grow</p>
               </div>
-              <p className="text-xs text-gray-600 dark:text-gray-400">Always evolving. I'm here to learn, level up, and build things that matter.</p>
+              <p className="text-xs text-gray-600 dark:text-gray-400">Always evolving. I&apos;m here to learn, level up, and build things that matter.</p>
             </motion.div>
           </div>
         </motion.div>
