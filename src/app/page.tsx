@@ -11,10 +11,9 @@ export default function Home() {
       <div id="about" className="space-y-12">
         <Hero />
         <WhatIDo />
-        <Skills />
       </div>
-      <ApiPreview />
       <Projects />
+      <ApiPreview />
       <Contact />
     </>
   )

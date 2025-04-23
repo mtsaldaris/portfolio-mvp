@@ -7,8 +7,8 @@ import ThemeToggle from './ThemeToggle'
 
 const sections = [
   { id: 'about', label: 'About Me' },
-  { id: 'api-preview', label: 'APIs' },
   { id: 'projects', label: 'Projects' },
+  { id: 'api-preview', label: 'APIs' },
   { id: 'contact', label: 'Contact' },
 ]
 
@@ -21,24 +21,24 @@ export default function Navigation() {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 80
       const aboutSection = document.getElementById('about')
-      const apiSection = document.getElementById('api-preview')
       const projectsSection = document.getElementById('projects')
+      const apiSection = document.getElementById('api-preview')
       const contactSection = document.getElementById('contact')
 
-      if (!aboutSection || !apiSection || !projectsSection || !contactSection) return
+      if (!aboutSection || !projectsSection || !apiSection  || !contactSection) return
 
       const aboutBottom = aboutSection.offsetTop + aboutSection.offsetHeight
-      const apiBottom = apiSection.offsetTop + apiSection.offsetHeight
       const projectsBottom = projectsSection.offsetTop + projectsSection.offsetHeight
+      const apiBottom = apiSection.offsetTop + apiSection.offsetHeight
       const contactRect = contactSection.getBoundingClientRect()
 
       if (scrollPosition < aboutBottom) {
         setActiveSection('about')
-      } else if (scrollPosition >= apiSection.offsetTop && scrollPosition < apiBottom) {
-        setActiveSection('api-preview')
       } else if (scrollPosition >= projectsSection.offsetTop && scrollPosition < projectsBottom) {
         setActiveSection('projects')
-      }
+      }  else if (scrollPosition >= apiSection.offsetTop && scrollPosition < apiBottom) {
+        setActiveSection('api-preview')
+      } 
 
       const contactTop = contactRect.top
       const contactBottom = contactRect.bottom
