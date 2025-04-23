@@ -18,7 +18,7 @@ export default function ApiPreview() {
   }
 
   return (
-    <section id="api-playground-preview" className="py-12">
+    <section id="api-preview" className="py-12">
       <h2 className="text-3xl font-bold mb-6">API Playground Preview</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {apiList.map((api) => (

@@ -6,36 +6,36 @@ import { Github, Linkedin, Mail, Menu, ArrowUp } from 'lucide-react'
 import ThemeToggle from './ThemeToggle'
 
 const sections = [
-  { id: 'home', label: 'About Me' },
-  { id: 'api-playground-preview', label: 'APIs' },
+  { id: 'about', label: 'About Me' },
+  { id: 'api-preview', label: 'APIs' },
   { id: 'projects', label: 'Projects' },
   { id: 'contact', label: 'Contact' },
 ]
 
 export default function Navigation() {
-  const [activeSection, setActiveSection] = useState('home')
+  const [activeSection, setActiveSection] = useState('about')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [showScrollTop, setShowScrollTop] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 80
-      const homeSection = document.getElementById('home')
-      const apiSection = document.getElementById('api-playground-preview')
+      const aboutSection = document.getElementById('about')
+      const apiSection = document.getElementById('api-preview')
       const projectsSection = document.getElementById('projects')
       const contactSection = document.getElementById('contact')
 
-      if (!homeSection || !apiSection || !projectsSection || !contactSection) return
+      if (!aboutSection || !apiSection || !projectsSection || !contactSection) return
 
-      const homeBottom = homeSection.offsetTop + homeSection.offsetHeight
+      const aboutBottom = aboutSection.offsetTop + aboutSection.offsetHeight
       const apiBottom = apiSection.offsetTop + apiSection.offsetHeight
       const projectsBottom = projectsSection.offsetTop + projectsSection.offsetHeight
       const contactRect = contactSection.getBoundingClientRect()
 
-      if (scrollPosition < homeBottom) {
-        setActiveSection('home')
+      if (scrollPosition < aboutBottom) {
+        setActiveSection('about')
       } else if (scrollPosition >= apiSection.offsetTop && scrollPosition < apiBottom) {
-        setActiveSection('api-playground-preview')
+        setActiveSection('api-preview')
       } else if (scrollPosition >= projectsSection.offsetTop && scrollPosition < projectsBottom) {
         setActiveSection('projects')
       }
