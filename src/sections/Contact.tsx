@@ -101,8 +101,8 @@ export default function Contact() {
           transition={{ duration: 0.6, delay: 0.6 }}
         >
           <div className="relative">
-            <div className="absolute w-2.5 h-2.5 bg-red-500 rounded-full animate-ping" />
-            <div className="relative w-2.5 h-2.5 bg-red-500 rounded-full shadow shadow-red-500/50" />
+            <div className="absolute w-2.5 h-2.5 bg-brand-secondary rounded-full animate-ping" />
+            <div className="relative w-2.5 h-2.5 bg-brand-secondary rounded-full shadow shadow-brand-secondary/50 animate-pulse" />
           </div>
           {location && (
             <span>

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import { Github, Linkedin, Mail, Menu, ArrowUp } from 'lucide-react'
+import { Github, Linkedin, Mail, Menu, ArrowUp, Terminal } from 'lucide-react'
 import ThemeToggle from './ThemeToggle'
 
 const sections = [
@@ -91,9 +91,12 @@ export default function Navigation() {
               whileHover={{ scale: 1.05 }}
               onClick={() => scrollToSection('home')}
             >
-              <span className="text-xl font-bold text-gradient-primary cursor-pointer">
-                myron.dev
-              </span>
+              <div className="flex items-center space-x-2 cursor-pointer">
+                <div className="p-1.5 border border-brand-primary dark:border-brand-dark-primary rounded-md">
+                  <Terminal className="w-5 h-5 stroke-[2.5] text-brand-primary dark:text-brand-dark-primary" />
+                </div>
+                <span className="text-xl font-bold text-gradient-primary">myron.dev</span>
+              </div>
             </motion.div>
 
             {/* Desktop Navigation */}
@@ -240,4 +243,4 @@ export default function Navigation() {
       )}
     </>
   )
-} 
+}
