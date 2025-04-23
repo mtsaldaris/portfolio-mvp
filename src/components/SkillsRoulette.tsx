@@ -1,11 +1,20 @@
 import { motion } from 'framer-motion';
-import { 
-  SiJavascript, SiSpring, SiTypescript, SiReact, SiNextdotjs, SiTailwindcss, 
-  SiDocker, SiGithub, SiAmazon, SiMysql,
-  SiGradle, SiApache, SiJunit5, SiFramer 
-} from 'react-icons/si';
 import { FaJava, FaMicrosoft } from 'react-icons/fa';
-import { useEffect } from 'react';
+import {
+  SiAmazon,
+  SiApache,
+  SiDocker,
+  SiFramer,
+  SiGithub,
+  SiGradle,
+  SiJunit5,
+  SiMysql,
+  SiNextdotjs,
+  SiReact,
+  SiSpring,
+  SiTailwindcss,
+  SiTypescript
+} from 'react-icons/si';
 
 const skills = [
   { icon: FaJava, name: 'Java' },
