@@ -22,7 +22,7 @@ export default function Hero() {
         >
           <div className="space-y-4">
             <h1 className="text-4xl md:text-5xl font-bold text-brand-text dark:text-brand-dark-text">
-              Hey, I'm <span className="text-brand-primary dark:text-brand-dark-primary">Myron</span>
+              Hey, I&apos;m <span className="text-brand-primary dark:text-brand-dark-primary">Myron</span>
             </h1>
             <h2 className="text-2xl md:text-3xl font-semibold text-brand-muted dark:text-brand-dark-muted">
               <span className="text-brand-primary dark:text-brand-dark-primary">{"{ "}</span>
