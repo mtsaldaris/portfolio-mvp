@@ -2,59 +2,63 @@
 
 import { motion } from 'framer-motion'
 import { Code2, Rocket, Workflow } from 'lucide-react'
-import SkillsRoulette from '@/components/SkillsRoulette'
+import SkillsRoulette from './SkillsRoulette'
 import StatCard from './StatCard'
 
 const stats = [
   {
     icon: Code2,
     title: 'Enterprise-Grade',
-    description: 'Shipping real software used by thousands. Secure, scalable, and production-ready.',
+    description: 'Shipping real software used by thousands. Secure, scalable, and production-ready',
+    variant: 'blue',
   },
   {
     icon: Workflow,
     title: 'API-Centric',
-    description: 'I design clear, consistent APIs that form the backbone of modern applications.',
+    description: 'I design clear, consistent APIs that form the backbone of modern applications',
+    variant: 'teal',
   },
   {
     icon: Rocket,
     title: 'Built to Grow',
-    description: 'Always evolving. I'm here to learn, level up, and build things that matter.',
+    description: 'Always evolving. I&apos;m here to learn, level up, and build things that matter',
+    variant: 'purple',
   },
-]
+] as const;
 
 export default function Hero() {
   return (
-    <section id="about" className="min-h-[90vh] flex items-center justify-center py-12 md:py-20 px-6 lg:px-12 pb-24 relative overflow-hidden">
-      {/* Animated background lights */}
+    <section id="about" className="min-h-screen flex items-center justify-center py-12 md:py-20 px-6 lg:px-12 pb-24 relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-r from-brand-primary/20 to-brand-secondary/20 dark:from-brand-dark-primary/20 dark:to-brand-dark-secondary/20 rounded-full blur-3xl animate-pulse" />
         <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-r from-brand-secondary/20 to-brand-primary/20 dark:from-brand-dark-secondary/20 dark:to-brand-dark-primary/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
 
-      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 items-center relative">
+      <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 items-center relative">
         {/* Left Column - Text Content */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="space-y-8 md:space-y-10 order-last md:order-first col-span-3"
+          className="space-y-6 md:space-y-8 order-last md:order-first col-span-3"
         >
           <div className="space-y-4 md:space-y-6">
-            <h1 className="text-4xl md:text-6xl font-bold text-brand-text dark:text-brand-dark-text text-center md:text-left">
-              Hey, I&apos;m <span className="text-brand-primary dark:text-brand-dark-primary">Myron</span>
+          <h1 className="text-3xl md:text-5xl font-bold text-brand-text dark:text-brand-dark-text text-center md:text-left">
+          Hey, I&apos;m <span className="text-brand-primary dark:text-brand-dark-primary">Myron</span>
             </h1>
-            <h2 className="text-2xl md:text-4xl font-semibold text-brand-muted dark:text-brand-dark-muted text-center md:text-left">
+            <h2 className="text-xl md:text-3xl font-semibold text-brand-muted dark:text-brand-dark-muted text-center md:text-left">
               <span className="text-brand-primary dark:text-brand-dark-primary">{"{ "}</span>
               Full Stack
               <span className="text-brand-primary dark:text-brand-dark-primary">{" }"}</span> Developer
             </h2>
-            <p className="text-lg md:text-xl text-brand-muted dark:text-brand-dark-muted max-w-2xl mx-auto md:mx-0 text-center md:text-left leading-relaxed">
-              With expertise in <span className="text-brand-primary dark:text-brand-dark-primary">Node.js</span>, 
-              <span className="text-brand-primary dark:text-brand-dark-primary"> React</span>, and 
-              <span className="text-brand-primary dark:text-brand-dark-primary"> TypeScript</span>, 
-              I create web solutions that are both innovative and robust. Passionate about clean code and 
-              <span className="text-brand-primary dark:text-brand-dark-primary"> scalable architecture</span>.
+            <p className="text-base md:text-lg text-brand-muted dark:text-brand-dark-muted max-w-lg mx-auto md:mx-0 text-center md:text-left">
+              With expertise in <span className="text-brand-secondary dark:text-brand-dark-secondary">Node.js</span>, 
+              <span className="text-brand-secondary dark:text-brand-dark-secondary"> React</span>, and 
+              <span className="text-brand-secondary dark:text-brand-dark-secondary"> TypeScript</span>, 
+              I create web solutions that are both innovative and robust. Passionate about 
+              <span className="text-brand-secondary dark:text-brand-dark-secondary"> clean code </span>
+              and 
+              <span className="text-brand-secondary dark:text-brand-dark-secondary"> scalable architecture</span>.
             </p>
           </div>
 
@@ -71,6 +75,7 @@ export default function Hero() {
                 icon={stat.icon}
                 title={stat.title}
                 description={stat.description}
+                variant={stat.variant}
                 delay={0.2 + index * 0.1}
               />
             ))}
@@ -85,7 +90,7 @@ export default function Hero() {
           className="relative order-first md:order-last col-span-2"
         >
           {/* Circular frame for portrait */}
-          <div className="relative w-full max-w-[280px] md:max-w-[420px] mx-auto aspect-square">
+          <div className="relative w-full max-w-[360px] md:max-w-[420px] mx-auto aspect-square">
             {/* Animated background circle */}
             <motion.div
               className="absolute inset-0 rounded-full"
