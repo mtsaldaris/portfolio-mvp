@@ -46,7 +46,7 @@ export default function SkillsRoulette() {
         <motion.div
           className="flex space-x-4"
           animate={{
-            x: [0, -50 * skills.length],
+            x: [-50 * skills.length, 0],
           }}
           transition={{
             x: {
