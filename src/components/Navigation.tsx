@@ -25,7 +25,7 @@ export default function Navigation() {
       const apiSection = document.getElementById('api-preview')
       const contactSection = document.getElementById('contact')
 
-      if (!aboutSection || !projectsSection || !apiSection  || !contactSection) return
+      if (!aboutSection || !projectsSection || !apiSection || !contactSection) return
 
       const aboutBottom = aboutSection.offsetTop + aboutSection.offsetHeight
       const projectsBottom = projectsSection.offsetTop + projectsSection.offsetHeight
@@ -36,9 +36,9 @@ export default function Navigation() {
         setActiveSection('about')
       } else if (scrollPosition >= projectsSection.offsetTop && scrollPosition < projectsBottom) {
         setActiveSection('projects')
-      }  else if (scrollPosition >= apiSection.offsetTop && scrollPosition < apiBottom) {
+      } else if (scrollPosition >= apiSection.offsetTop && scrollPosition < apiBottom) {
         setActiveSection('api-preview')
-      } 
+      }
 
       const contactTop = contactRect.top
       const contactBottom = contactRect.bottom
@@ -86,8 +86,6 @@ export default function Navigation() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo/Name */}
-
-            {/* Enhanced terminal-style typing animation */}
             <motion.div
               className="flex items-center justify-center h-10 px-4 border border-brand-primary dark:border-brand-dark-primary rounded-md font-mono text-base font-medium text-brand-primary dark:text-brand-dark-primary bg-transparent"
               initial={{ opacity: 0 }}
@@ -100,7 +98,7 @@ export default function Navigation() {
                     key={index}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.1 * index }}
+                    transition={{ delay: 0.2 * index }} // 2.2
                   >
                     {char}
                   </motion.span>
@@ -109,9 +107,9 @@ export default function Navigation() {
                   className="animate-blink ml-1"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: 1.2 }}
+                  transition={{ delay: 2.3 }}
                 >
-                  █
+                  ▋
                 </motion.span>
               </div>
             </motion.div>
@@ -123,8 +121,8 @@ export default function Navigation() {
                   key={section.id}
                   onClick={() => scrollToSection(section.id)}
                   className={`relative px-3 py-2 text-sm font-medium transition-colors ${activeSection === section.id
-                      ? 'text-brand-primary dark:text-brand-dark-primary'
-                      : 'text-brand-text dark:text-brand-dark-text hover:text-brand-primary dark:hover:text-brand-dark-primary'
+                    ? 'text-brand-primary dark:text-brand-dark-primary'
+                    : 'text-brand-text dark:text-brand-dark-text hover:text-brand-primary dark:hover:text-brand-dark-primary'
                     }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -198,8 +196,8 @@ export default function Navigation() {
                   key={section.id}
                   onClick={() => scrollToSection(section.id)}
                   className={`w-full text-left px-3 py-2 text-sm font-medium transition-colors ${activeSection === section.id
-                      ? 'text-brand-primary dark:text-brand-dark-primary'
-                      : 'text-brand-text dark:text-brand-dark-text hover:text-brand-primary dark:hover:text-brand-dark-primary'
+                    ? 'text-brand-primary dark:text-brand-dark-primary'
+                    : 'text-brand-text dark:text-brand-dark-text hover:text-brand-primary dark:hover:text-brand-dark-primary'
                     }`}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}

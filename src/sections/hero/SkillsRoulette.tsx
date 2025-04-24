@@ -58,23 +58,36 @@ export default function SkillsRoulette() {
         >
           <div className="flex space-x-4">
             {extendedSkills.map((skill, index) => (
-              <div
+              // Future enhancement: make skill cards draggable and snap back to position on release using framer-motion's drag + dragConstraints + onDragEnd.
+              <motion.div
                 key={index}
-                className="min-w-[120px] px-3 py-1.5 flex items-center gap-2 rounded-lg bg-white/10 hover:bg-white/20 dark:bg-[#1a1a1a]/50 dark:hover:bg-[#1a1a1a]/70 border border-[#333333]/10 dark:border-[#333333]/30 backdrop-blur-sm transition-colors"
+                drag="x"
+                dragElastic={0.3}
+                dragSnapToOrigin
+                whileTap={{ scale: 0.95 }}
+                className="min-w-[120px] px-3 py-1.5 flex items-center gap-2 rounded-lg
+                           bg-white/80 hover:bg-white shadow-sm
+                           dark:bg-brand-dark/40 dark:hover:bg-brand-dark/60
+                           border border-gray-300 dark:border-brand-dark-muted/60
+                           hover:border-brand-secondary/40 dark:hover:border-brand-secondary/40
+                           hover:shadow-md dark:hover:shadow-md hover:scale-5
+                           hover:shadow-[0_3px_12px_rgba(44,182,125,0.25)]
+                           dark:hover:shadow-[0_2px_10px_rgba(44,182,125,0.25)]
+                           transition-all duration-200 ease-in-out cursor-pointer"
               >
                 {React.createElement(skill.icon, {
-                  className: "w-5 h-5 text-brand-primary dark:text-brand-dark-primary"
+                  className: "w-5 h-5 text-brand-secondary dark:text-brand-dark-secondary"
                 })}
                 <span className="text-sm text-brand-text dark:text-brand-dark-text whitespace-nowrap">{skill.name}</span>
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>
 
         {/* Gradient overlays for smooth fade effect */}
-        <div className="absolute inset-y-0 left-0 w-12 md:w-24 bg-gradient-to-r from-background to-transparent pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-12 md:w-24 bg-gradient-to-l from-background to-transparent pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white/90 to-transparent dark:from-brand-dark/90 pointer-events-none z-5" />
+        <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white/90 to-transparent dark:from-brand-dark/90 pointer-events-none z-5" />
       </div>
     </div>
   );
-} 
+}
