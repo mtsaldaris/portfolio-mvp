@@ -42,16 +42,16 @@ export default function StatCard({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay }}
       className={cn(
-        "group p-2 md:p-3.5 rounded-xl bg-white/10 hover:bg-white/20 dark:bg-[#1a1a1a]/50 dark:hover:bg-[#1a1a1a]/70 border border-gray-400/40 dark:border-gray-600/40 backdrop-blur-sm transition-all duration-300",
+        "group p-2.5 rounded-xl bg-white/10 hover:bg-white/20 dark:bg-[#1a1a1a]/50 dark:hover:bg-[#1a1a1a]/70 border border-gray-400/40 dark:border-gray-600/40 backdrop-blur-sm transition-all duration-300",
         colors.text,
         "hover:border-current/40 hover:shadow-[0_0_4px]"
       )}
     >
-      <div className="mb-2 flex items-center gap-1.5 border-b border-gray-400/20 pb-2 dark:border-gray-600/20">
-        <div className={cn('flex-shrink-0 rounded-lg p-1.5 transition-colors', colors.bg)}>
-          <Icon className={cn('h-5 w-5', colors.icon)} />
+      <div className="mb-2 flex items-center gap-2 border-b border-gray-400/20 pb-2 dark:border-gray-600/20">
+        <div className={cn('flex-shrink-0 rounded-lg p-2 transition-colors', colors.bg)}>
+          <Icon className={cn('h-4.5 w-4.5', colors.icon)} />
         </div>
-        <h3 className={cn('text-base font-semibold', colors.text)}>
+        <h3 className={cn('text-sm font-semibold whitespace-nowrap', colors.text)}>
           {title}
         </h3>
       </div>
