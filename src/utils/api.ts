@@ -4,7 +4,7 @@ export const apiList = [
     title: 'Random Quote',
     description: 'Returns a random developer quote',
     endpoint: '/api/quote',
-    tags: ['fun', 'text']
+    tags: ['fun', 'text'],
   },
   // more APIs here
 ]

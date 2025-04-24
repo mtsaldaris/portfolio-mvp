@@ -10,13 +10,13 @@
 
 @layer base {
   body {
-    @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-white;
+    @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-white;
   }
 }
 
 @layer components {
   .text-gradient-primary {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500;
+    @apply bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent;
   }
 
   .bg-gradient-primary {
@@ -24,7 +24,7 @@
   }
 
   .border-gradient-primary {
-    @apply border-2 border-transparent bg-clip-border bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500;
+    @apply border-2 border-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-border;
   }
 }
 
@@ -38,7 +38,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-blue-500/50 dark:bg-blue-500/50 rounded-full;
+  @apply rounded-full bg-blue-500/50 dark:bg-blue-500/50;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -47,7 +47,7 @@
 
 /* Code block styling */
 pre {
-  @apply bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto;
+  @apply overflow-x-auto rounded-lg bg-gray-100 p-4 dark:bg-gray-800;
 }
 
 code {
@@ -56,16 +56,16 @@ code {
 
 /* Terminal-like elements */
 .terminal {
-  @apply bg-gray-900 p-4 rounded-lg font-mono text-sm;
+  @apply rounded-lg bg-gray-900 p-4 font-mono text-sm;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .terminal-header {
-  @apply flex items-center space-x-2 mb-4;
+  @apply mb-4 flex items-center space-x-2;
 }
 
 .terminal-dot {
-  @apply w-3 h-3 rounded-full;
+  @apply h-3 w-3 rounded-full;
 }
 
 .terminal-dot-red {
@@ -82,20 +82,20 @@ code {
 
 /* Tech card styling */
 .tech-card {
-  @apply bg-white/50 dark:bg-gray-800/50 p-6 rounded-lg backdrop-blur-sm border border-gray-200/10 dark:border-gray-700/10 transition-all duration-300;
+  @apply rounded-lg border border-gray-200/10 bg-white/50 p-6 backdrop-blur-sm transition-all duration-300 dark:border-gray-700/10 dark:bg-gray-800/50;
 }
 
 .tech-card:hover {
-  @apply transform -translate-y-1 shadow-lg;
+  @apply -translate-y-1 transform shadow-lg;
 }
 
 /* Section headers */
 .section-header {
-  @apply text-4xl font-bold mb-6 text-center text-gradient-primary;
+  @apply text-gradient-primary mb-6 text-center text-4xl font-bold;
 }
 
 .section-subheader {
-  @apply text-xl text-gray-600 dark:text-gray-400 mb-8 text-center max-w-2xl mx-auto;
+  @apply mx-auto mb-8 max-w-2xl text-center text-xl text-gray-600 dark:text-gray-400;
 }
 
 /* Navigation */
@@ -108,40 +108,40 @@ code {
 }
 
 .nav-link-inactive {
-  @apply text-gray-900 dark:text-white hover:text-blue-500 dark:hover:text-blue-500;
+  @apply text-gray-900 hover:text-blue-500 dark:text-white dark:hover:text-blue-500;
 }
 
 /* Buttons */
 .btn-primary {
-  @apply px-6 py-3 rounded-lg bg-gradient-primary text-white font-medium transition-all duration-300 hover:shadow-lg hover:scale-105;
+  @apply bg-gradient-primary rounded-lg px-6 py-3 font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-lg;
 }
 
 .btn-secondary {
-  @apply px-6 py-3 rounded-lg bg-white/50 dark:bg-gray-800/50 text-gray-900 dark:text-white font-medium transition-all duration-300 hover:shadow-lg hover:scale-105;
+  @apply rounded-lg bg-white/50 px-6 py-3 font-medium text-gray-900 transition-all duration-300 hover:scale-105 hover:shadow-lg dark:bg-gray-800/50 dark:text-white;
 }
 
 /* Social icons */
 .social-icon {
-  @apply text-gray-900 dark:text-white hover:text-blue-500 dark:hover:text-blue-500 transition-colors;
+  @apply text-gray-900 transition-colors hover:text-blue-500 dark:text-white dark:hover:text-blue-500;
 }
 
 /* Project cards */
 .project-card {
-  @apply bg-white/50 dark:bg-gray-800/50 p-6 rounded-lg backdrop-blur-sm border border-gray-200/10 dark:border-gray-700/10 transition-all duration-300;
+  @apply rounded-lg border border-gray-200/10 bg-white/50 p-6 backdrop-blur-sm transition-all duration-300 dark:border-gray-700/10 dark:bg-gray-800/50;
 }
 
 .project-card:hover {
-  @apply transform -translate-y-1 shadow-lg;
+  @apply -translate-y-1 transform shadow-lg;
 }
 
 /* Technology tags */
 .tech-tag {
-  @apply px-3 py-1 rounded-full text-xs font-mono bg-blue-500/10 dark:bg-blue-500/10 text-blue-500 dark:text-blue-500;
+  @apply rounded-full bg-blue-500/10 px-3 py-1 font-mono text-xs text-blue-500 dark:bg-blue-500/10 dark:text-blue-500;
 }
 
 /* Contact form */
 .contact-input {
-  @apply w-full px-4 py-3 rounded-lg bg-white/50 dark:bg-gray-800/50 border border-gray-200/10 dark:border-gray-700/10 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500;
+  @apply w-full rounded-lg border border-gray-200/10 bg-white/50 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-700/10 dark:bg-gray-800/50 dark:focus:ring-blue-500;
 }
 
 /* Animations */
@@ -162,8 +162,13 @@ code {
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 .animate-blink {
@@ -172,7 +177,7 @@ code {
 
 /* Glass effect */
 .glass {
-  @apply bg-white/60 dark:bg-zinc-800/50 backdrop-blur-md border border-gray-300/20 dark:border-gray-700/10;
+  @apply border border-gray-300/20 bg-white/60 backdrop-blur-md dark:border-gray-700/10 dark:bg-zinc-800/50;
 }
 
 /* Code syntax highlighting */
@@ -238,12 +243,12 @@ html {
 
 /* Set max width for section content */
 section {
-  @apply px-4 sm:px-8 max-w-6xl mx-auto;
+  @apply mx-auto max-w-6xl px-4 sm:px-8;
 }
 
 /* Hero section specific styles */
 section.hero {
-  @apply min-h-screen flex items-center;
+  @apply flex min-h-screen items-center;
 }
 
 /* Fade-in animation */

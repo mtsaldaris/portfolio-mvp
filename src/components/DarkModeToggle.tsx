@@ -7,7 +7,9 @@ export default function DarkModeToggle() {
 
   useEffect(() => {
     const root = document.documentElement
-    const darkPref = localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    const darkPref =
+      localStorage.getItem('theme') === 'dark' ||
+      (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)
     root.classList.toggle('dark', darkPref)
     setIsDark(darkPref)
   }, [])
@@ -23,7 +25,7 @@ export default function DarkModeToggle() {
   return (
     <button
       onClick={toggle}
-      className="ml-auto px-3 py-1 rounded bg-zinc-700 text-white text-sm hover:bg-zinc-600 transition"
+      className="ml-auto rounded bg-zinc-700 px-3 py-1 text-sm text-white transition hover:bg-zinc-600"
     >
       {isDark ? '☀️ Light' : '🌙 Dark'}
     </button>

@@ -14,7 +14,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 // Helper function to get initial theme
 const getInitialTheme = (): Theme => {
   if (typeof window === 'undefined') return 'dark'
-  
+
   const savedTheme = localStorage.getItem('theme') as Theme
   if (savedTheme) return savedTheme
 
@@ -53,7 +53,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, [theme, mounted])
 
   const toggleTheme = () => {
-    setTheme(prev => prev === 'light' ? 'dark' : 'light')
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))
   }
 
   // Prevent FOUC by not rendering until we know the theme
@@ -61,11 +61,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     return null
   }
 
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  )
+  return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>
 }
 
 export function useTheme() {
@@ -74,4 +70,4 @@ export function useTheme() {
     throw new Error('useTheme must be used within a ThemeProvider')
   }
   return context
-} 
+}

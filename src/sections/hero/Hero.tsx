@@ -24,41 +24,61 @@ const stats = [
     description: 'Always evolving. I&apos;m here to learn, level up, and build things that matter',
     variant: 'purple',
   },
-] as const;
+] as const
 
 export default function Hero() {
   return (
-    <section id="about" className="min-h-screen flex items-center justify-center py-12 md:py-20 px-6 lg:px-12 pb-24 relative overflow-hidden">
+    <section
+      id="about"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-12 pb-24 md:py-20 lg:px-12"
+    >
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-r from-brand-primary/20 to-brand-secondary/20 dark:from-brand-dark-primary/20 dark:to-brand-dark-secondary/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-r from-brand-secondary/20 to-brand-primary/20 dark:from-brand-dark-secondary/20 dark:to-brand-dark-primary/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute -left-1/2 -top-1/2 h-full w-full animate-pulse rounded-full bg-gradient-to-r from-brand-primary/20 to-brand-secondary/20 blur-3xl dark:from-brand-dark-primary/20 dark:to-brand-dark-secondary/20" />
+        <div
+          className="absolute -bottom-1/2 -right-1/2 h-full w-full animate-pulse rounded-full bg-gradient-to-r from-brand-secondary/20 to-brand-primary/20 blur-3xl dark:from-brand-dark-secondary/20 dark:to-brand-dark-primary/20"
+          style={{ animationDelay: '1s' }}
+        />
       </div>
 
-      <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 items-center relative">
+      <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-8 md:grid-cols-5 md:gap-12">
         {/* Left Column - Text Content */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="space-y-6 md:space-y-8 order-last md:order-first col-span-3"
+          className="order-last col-span-3 space-y-6 md:order-first md:space-y-8"
         >
           <div className="space-y-4 md:space-y-6">
-          <h1 className="text-3xl md:text-5xl font-bold text-brand-text dark:text-brand-dark-text text-center md:text-left">
-          Hey, I&apos;m <span className="text-brand-primary dark:text-brand-dark-primary">Myron</span>
+            <h1 className="text-center text-3xl font-bold text-brand-text dark:text-brand-dark-text md:text-left md:text-5xl">
+              Hey, I&apos;m{' '}
+              <span className="text-brand-primary dark:text-brand-dark-primary">Myron</span>
             </h1>
-            <h2 className="text-xl md:text-3xl font-semibold text-brand-muted dark:text-brand-dark-muted text-center md:text-left">
-              <span className="text-brand-primary dark:text-brand-dark-primary">{"{ "}</span>
+            <h2 className="text-center text-xl font-semibold text-brand-muted dark:text-brand-dark-muted md:text-left md:text-3xl">
+              <span className="text-brand-primary dark:text-brand-dark-primary">{'{ '}</span>
               Full Stack
-              <span className="text-brand-primary dark:text-brand-dark-primary">{" }"}</span> Developer
+              <span className="text-brand-primary dark:text-brand-dark-primary">{' }'}</span>{' '}
+              Developer
             </h2>
-            <p className="text-base md:text-lg text-brand-muted dark:text-brand-dark-muted max-w-lg mx-auto md:mx-0 text-center md:text-left">
-              With expertise in <span className="text-brand-secondary dark:text-brand-dark-secondary">Node.js</span>, 
-              <span className="text-brand-secondary dark:text-brand-dark-secondary"> React</span>, and 
-              <span className="text-brand-secondary dark:text-brand-dark-secondary"> TypeScript</span>, 
-              I create web solutions that are both innovative and robust. Passionate about 
-              <span className="text-brand-secondary dark:text-brand-dark-secondary"> clean code </span>
-              and 
-              <span className="text-brand-secondary dark:text-brand-dark-secondary"> scalable architecture</span>.
+            <p className="mx-auto max-w-lg text-center text-base text-brand-muted dark:text-brand-dark-muted md:mx-0 md:text-left md:text-lg">
+              With expertise in{' '}
+              <span className="text-brand-secondary dark:text-brand-dark-secondary">Node.js</span>,
+              <span className="text-brand-secondary dark:text-brand-dark-secondary"> React</span>,
+              and
+              <span className="text-brand-secondary dark:text-brand-dark-secondary">
+                {' '}
+                TypeScript
+              </span>
+              , I create web solutions that are both innovative and robust. Passionate about
+              <span className="text-brand-secondary dark:text-brand-dark-secondary">
+                {' '}
+                clean code{' '}
+              </span>
+              and
+              <span className="text-brand-secondary dark:text-brand-dark-secondary">
+                {' '}
+                scalable architecture
+              </span>
+              .
             </p>
           </div>
 
@@ -68,7 +88,7 @@ export default function Hero() {
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-5">
             {stats.map((stat, index) => (
               <StatCard
                 key={stat.title}
@@ -87,15 +107,16 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative order-first md:order-last col-span-2"
+          className="relative order-first col-span-2 md:order-last"
         >
           {/* Circular frame for portrait */}
-          <div className="relative w-full max-w-[360px] md:max-w-[420px] mx-auto aspect-square">
+          <div className="relative mx-auto aspect-square w-full max-w-[360px] md:max-w-[420px]">
             {/* Animated background circle */}
             <motion.div
               className="absolute inset-0 rounded-full"
               style={{
-                background: 'radial-gradient(circle, rgba(59,130,246,0.2) 0%, rgba(139,92,246,0.2) 50%, rgba(236,72,153,0.2) 100%)',
+                background:
+                  'radial-gradient(circle, rgba(59,130,246,0.2) 0%, rgba(139,92,246,0.2) 50%, rgba(236,72,153,0.2) 100%)',
                 filter: 'blur(30px)',
               }}
               animate={{
@@ -105,16 +126,16 @@ export default function Hero() {
               transition={{
                 duration: 20,
                 repeat: Infinity,
-                ease: "linear"
+                ease: 'linear',
               }}
             />
-            
+
             {/* Portrait container */}
-            <div className="absolute inset-0 rounded-full bg-[#1a1a1a]/20 dark:bg-[#1a1a1a]/50 border border-[#333333]/10 dark:border-[#333333]/30 overflow-hidden">
+            <div className="absolute inset-0 overflow-hidden rounded-full border border-[#333333]/10 bg-[#1a1a1a]/20 dark:border-[#333333]/30 dark:bg-[#1a1a1a]/50">
               <img
                 src="/images/myron-avatar.png"
                 alt="Myron's portrait"
-                className="w-full h-full object-cover"
+                className="h-full w-full object-cover"
               />
             </div>
           </div>
@@ -126,11 +147,17 @@ export default function Hero() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.2 }}
-        className="absolute bottom-8 inset-x-0 flex justify-center items-center"
+        className="absolute inset-x-0 bottom-8 flex items-center justify-center"
       >
         <div className="flex flex-col items-center">
           <p className="text-sm text-brand-muted dark:text-brand-dark-muted">Scroll to explore</p>
-          <svg className="w-4 h-4 mt-1 animate-bounce text-brand-muted dark:text-brand-dark-muted" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <svg
+            className="mt-1 h-4 w-4 animate-bounce text-brand-muted dark:text-brand-dark-muted"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+          >
             <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
           </svg>
         </div>

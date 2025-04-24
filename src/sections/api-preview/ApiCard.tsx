@@ -58,10 +58,10 @@ export default function ApiCard({
 
   const handleAction = async () => {
     if (!onAction) return
-    
+
     setIsLoading(true)
     setError(null)
-    
+
     try {
       await onAction()
     } catch (err) {
@@ -74,8 +74,8 @@ export default function ApiCard({
   const renderResponse = () => {
     if (error) {
       return (
-        <div className="bg-red-50 dark:bg-red-900/20 p-3 rounded">
-          <code className="text-sm font-mono text-red-500">{error}</code>
+        <div className="rounded bg-red-50 p-3 dark:bg-red-900/20">
+          <code className="font-mono text-sm text-red-500">{error}</code>
         </div>
       )
     }
@@ -87,7 +87,7 @@ export default function ApiCard({
       const quoteResponse = response as QuoteResponse
       return (
         <div className="space-y-3">
-          <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg">
+          <div className="rounded-lg bg-gray-50 p-4 dark:bg-gray-800/50">
             <p className="text-lg italic text-gray-900 dark:text-white">
               &quot;{quoteResponse.data.quote}&quot;
             </p>
@@ -97,7 +97,8 @@ export default function ApiCard({
             </div>
           </div>
           <div className="text-xs text-gray-500 dark:text-gray-400">
-            API v{quoteResponse.metadata.version} • {quoteResponse.metadata.totalQuotes} quotes available
+            API v{quoteResponse.metadata.version} • {quoteResponse.metadata.totalQuotes} quotes
+            available
           </div>
         </div>
       )
@@ -106,12 +107,12 @@ export default function ApiCard({
     // GitHub Repos Response
     if (endpoint === '/api/github/repos') {
       const githubResponse = response as GitHubResponse
-      
+
       // Handle coming soon state
       if (githubResponse.metadata.status === 'under_development') {
         return (
           <div className="space-y-3">
-            <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg">
+            <div className="rounded-lg bg-yellow-50 p-4 dark:bg-yellow-900/20">
               <div className="flex items-center gap-2 text-yellow-800 dark:text-yellow-200">
                 <span className="text-lg">🚧</span>
                 <p className="text-sm">{githubResponse.data.message}</p>
@@ -131,22 +132,20 @@ export default function ApiCard({
           </div>
           <div className="space-y-2">
             {githubResponse.data.repos.map((repo, index) => (
-              <div key={index} className="bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg">
+              <div key={index} className="rounded-lg bg-gray-50 p-3 dark:bg-gray-800/50">
                 <div className="flex items-center justify-between">
-                  <a 
-                    href={repo.url} 
-                    target="_blank" 
+                  <a
+                    href={repo.url}
+                    target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 font-medium"
+                    className="font-medium text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
                   >
                     {repo.name}
                   </a>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
-                    ⭐ {repo.stars}
-                  </span>
+                  <span className="text-sm text-gray-500 dark:text-gray-400">⭐ {repo.stars}</span>
                 </div>
                 {repo.description && (
-                  <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
+                  <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
                     {repo.description}
                   </p>
                 )}
@@ -159,8 +158,8 @@ export default function ApiCard({
 
     // Default JSON response for unknown APIs
     return (
-      <div className="bg-gray-50 dark:bg-gray-800/50 p-3 rounded">
-        <code className="text-sm font-mono text-gray-900 dark:text-gray-100">
+      <div className="rounded bg-gray-50 p-3 dark:bg-gray-800/50">
+        <code className="font-mono text-sm text-gray-900 dark:text-gray-100">
           {typeof response === 'string' ? response : JSON.stringify(response, null, 2)}
         </code>
       </div>
@@ -168,22 +167,20 @@ export default function ApiCard({
   }
 
   return (
-    <motion.div 
-      className="bg-white/60 dark:bg-zinc-800/50 p-6 rounded-lg border border-gray-300/20 dark:border-gray-700/10 backdrop-blur-md hover:border-blue-500/20 dark:hover:border-blue-500/20 transition-all"
+    <motion.div
+      className="rounded-lg border border-gray-300/20 bg-white/60 p-6 backdrop-blur-md transition-all hover:border-blue-500/20 dark:border-gray-700/10 dark:bg-zinc-800/50 dark:hover:border-blue-500/20"
       whileHover={{ y: -2 }}
     >
       <div className="space-y-4">
         {/* Header */}
         <div>
           <h3 className="text-lg font-bold text-gray-900 dark:text-white">{title}</h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{description}</p>
+          <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">{description}</p>
         </div>
 
         {/* Endpoint */}
-        <div className="bg-gray-100 dark:bg-gray-800/50 p-3 rounded">
-          <code className="text-sm font-mono text-gray-900 dark:text-gray-100">
-            {endpoint}
-          </code>
+        <div className="rounded bg-gray-100 p-3 dark:bg-gray-800/50">
+          <code className="font-mono text-sm text-gray-900 dark:text-gray-100">{endpoint}</code>
         </div>
 
         {/* Tags */}
@@ -194,14 +191,10 @@ export default function ApiCard({
         </div>
 
         {/* Action Button */}
-        <Button 
-          onClick={handleAction}
-          disabled={isLoading}
-          className="w-full"
-        >
+        <Button onClick={handleAction} disabled={isLoading} className="w-full">
           {isLoading ? (
             <span className="flex items-center justify-center">
-              <span className="animate-spin mr-2">⟳</span>
+              <span className="mr-2 animate-spin">⟳</span>
               Processing...
             </span>
           ) : (
@@ -212,15 +205,13 @@ export default function ApiCard({
         {/* Response Display */}
         {(response || error) && (
           <div className="mt-4">
-            <div className="flex items-center justify-between mb-2">
+            <div className="mb-2 flex items-center justify-between">
               <h4 className="text-sm font-medium text-gray-900 dark:text-white">Response</h4>
               <span className="text-xs text-gray-500 dark:text-gray-400">
                 {new Date().toLocaleTimeString()}
               </span>
             </div>
-            <div className="max-h-96 overflow-y-auto">
-              {renderResponse()}
-            </div>
+            <div className="max-h-96 overflow-y-auto">{renderResponse()}</div>
           </div>
         )}
       </div>

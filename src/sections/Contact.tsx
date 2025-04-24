@@ -15,12 +15,12 @@ export default function Contact() {
   }, [])
 
   return (
-    <section id="contact" className="py-32 scroll-mt-28 min-h-[60vh]">
-      <div className="max-w-4xl mx-auto px-4">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-primary/20 to-transparent dark:via-brand-dark-primary/20" />
+    <section id="contact" className="min-h-[60vh] scroll-mt-28 py-32">
+      <div className="mx-auto max-w-4xl px-4">
+        <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-primary/20 to-transparent dark:via-brand-dark-primary/20" />
 
         <motion.h2
-          className="text-4xl font-bold mb-6 text-center"
+          className="mb-6 text-center text-4xl font-bold"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -30,32 +30,35 @@ export default function Contact() {
         </motion.h2>
 
         <motion.p
-          className="text-xl text-brand-muted dark:text-brand-dark-muted mb-8 text-center"
+          className="mb-8 text-center text-xl text-brand-muted dark:text-brand-dark-muted"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+          I&apos;m always open to discussing new projects, creative ideas, or opportunities to be
+          part of your visions.
         </motion.p>
 
         <motion.div
-          className="mt-12 mx-auto w-fit rounded-md glass bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-white px-6 py-4 text-left text-sm font-mono shadow-xl backdrop-blur-md border border-zinc-700/40 dark:border-zinc-100/10"
+          className="glass mx-auto mt-12 w-fit rounded-md border border-zinc-700/40 bg-zinc-100 px-6 py-4 text-left font-mono text-sm text-zinc-800 shadow-xl backdrop-blur-md dark:border-zinc-100/10 dark:bg-zinc-800 dark:text-white"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <p>
-            <span className="text-green-500 font-semibold">$</span>{' '}
+            <span className="font-semibold text-green-500">$</span>{' '}
             <span className="text-gray-500">connect --to</span>{' '}
-            <span className="text-brand-primary dark:text-brand-dark-primary font-semibold">myron.tsaldaris</span>
-            <span className="ml-1 animate-blink">|</span>
+            <span className="font-semibold text-brand-primary dark:text-brand-dark-primary">
+              myron.tsaldaris
+            </span>
+            <span className="animate-blink ml-1">|</span>
           </p>
         </motion.div>
 
         <motion.div
-          className="flex justify-center mt-6 space-x-6"
+          className="mt-6 flex justify-center space-x-6"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -65,48 +68,52 @@ export default function Contact() {
             href="https://github.com/mtsaldaris"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 rounded-full bg-brand-primary/10 dark:bg-brand-dark-primary/10 hover:bg-brand-primary/20 dark:hover:bg-brand-dark-primary/20 transition-colors"
+            className="rounded-full bg-brand-primary/10 p-3 transition-colors hover:bg-brand-primary/20 dark:bg-brand-dark-primary/10 dark:hover:bg-brand-dark-primary/20"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Github className="w-6 h-6 text-brand-primary dark:text-brand-dark-primary" />
+            <Github className="h-6 w-6 text-brand-primary dark:text-brand-dark-primary" />
           </motion.a>
 
           <motion.a
             href="https://linkedin.com/in/mtsaldaris"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 rounded-full bg-brand-primary/10 dark:bg-brand-dark-primary/10 hover:bg-brand-primary/20 dark:hover:bg-brand-dark-primary/20 transition-colors"
+            className="rounded-full bg-brand-primary/10 p-3 transition-colors hover:bg-brand-primary/20 dark:bg-brand-dark-primary/10 dark:hover:bg-brand-dark-primary/20"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Linkedin className="w-6 h-6 text-brand-primary dark:text-brand-dark-primary" />
+            <Linkedin className="h-6 w-6 text-brand-primary dark:text-brand-dark-primary" />
           </motion.a>
 
           <motion.a
             href="mailto:mtsaldaris@gmail.com"
-            className="p-3 rounded-full bg-brand-primary/10 dark:bg-brand-dark-primary/10 hover:bg-brand-primary/20 dark:hover:bg-brand-dark-primary/20 transition-colors"
+            className="rounded-full bg-brand-primary/10 p-3 transition-colors hover:bg-brand-primary/20 dark:bg-brand-dark-primary/10 dark:hover:bg-brand-dark-primary/20"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Mail className="w-6 h-6 text-brand-primary dark:text-brand-dark-primary" />
+            <Mail className="h-6 w-6 text-brand-primary dark:text-brand-dark-primary" />
           </motion.a>
         </motion.div>
 
         <motion.div
-          className="mt-6 flex justify-center items-center space-x-2 text-sm text-brand-muted dark:text-brand-dark-muted font-medium"
+          className="mt-6 flex items-center justify-center space-x-2 text-sm font-medium text-brand-muted dark:text-brand-dark-muted"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
           <div className="relative">
-            <div className="absolute w-2.5 h-2.5 bg-brand-secondary rounded-full animate-ping" />
-            <div className="relative w-2.5 h-2.5 bg-brand-secondary rounded-full shadow shadow-brand-secondary/50 animate-pulse" />
+            <div className="absolute h-2.5 w-2.5 animate-ping rounded-full bg-brand-secondary" />
+            <div className="relative h-2.5 w-2.5 animate-pulse rounded-full bg-brand-secondary shadow shadow-brand-secondary/50" />
           </div>
           {location && (
             <span>
-              Currently in <strong>{location.city}, {location.country}</strong> — let’s meet up!
+              Currently in{' '}
+              <strong>
+                {location.city}, {location.country}
+              </strong>{' '}
+              — let’s meet up!
             </span>
           )}
         </motion.div>

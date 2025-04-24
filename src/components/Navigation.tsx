@@ -63,7 +63,7 @@ export default function Navigation() {
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth'
+        behavior: 'smooth',
       })
       setIsMobileMenuOpen(false)
     }
@@ -72,7 +72,7 @@ export default function Navigation() {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     })
   }
 
@@ -81,13 +81,13 @@ export default function Navigation() {
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className="fixed top-0 left-0 right-0 z-50 bg-brand-light/80 dark:bg-brand-dark/80 backdrop-blur-md border-b border-brand-muted/10 dark:border-brand-dark-muted/10"
+        className="fixed left-0 right-0 top-0 z-50 border-b border-brand-muted/10 bg-brand-light/80 backdrop-blur-md dark:border-brand-dark-muted/10 dark:bg-brand-dark/80"
       >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between">
             {/* Logo/Name */}
             <motion.div
-              className="flex items-center justify-center h-10 px-4 border border-brand-primary dark:border-brand-dark-primary rounded-md font-mono text-base font-medium text-brand-primary dark:text-brand-dark-primary bg-transparent"
+              className="flex h-10 items-center justify-center rounded-md border border-brand-primary bg-transparent px-4 font-mono text-base font-medium text-brand-primary dark:border-brand-dark-primary dark:text-brand-dark-primary"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
@@ -115,22 +115,23 @@ export default function Navigation() {
             </motion.div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden items-center space-x-8 md:flex">
               {sections.map((section) => (
                 <motion.button
                   key={section.id}
                   onClick={() => scrollToSection(section.id)}
-                  className={`relative px-3 py-2 text-sm font-medium transition-colors ${activeSection === section.id
-                    ? 'text-brand-primary dark:text-brand-dark-primary'
-                    : 'text-brand-text dark:text-brand-dark-text hover:text-brand-primary dark:hover:text-brand-dark-primary'
-                    }`}
+                  className={`relative px-3 py-2 text-sm font-medium transition-colors ${
+                    activeSection === section.id
+                      ? 'text-brand-primary dark:text-brand-dark-primary'
+                      : 'text-brand-text hover:text-brand-primary dark:text-brand-dark-text dark:hover:text-brand-dark-primary'
+                  }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   {section.label}
                   {activeSection === section.id && (
                     <motion.div
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-primary"
+                      className="bg-gradient-primary absolute bottom-0 left-0 right-0 h-0.5"
                       layoutId="activeSection"
                       transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                     />
@@ -141,42 +142,42 @@ export default function Navigation() {
 
             {/* Social Icons and Theme Toggle */}
             <div className="flex items-center space-x-4">
-              <div className="hidden md:flex items-center space-x-4">
+              <div className="hidden items-center space-x-4 md:flex">
                 <motion.a
                   href="https://github.com/mtsaldaris"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-text dark:text-brand-dark-text hover:text-brand-primary dark:hover:text-brand-dark-primary transition-colors"
+                  className="text-brand-text transition-colors hover:text-brand-primary dark:text-brand-dark-text dark:hover:text-brand-dark-primary"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Github className="w-5 h-5" />
+                  <Github className="h-5 w-5" />
                 </motion.a>
                 <motion.a
                   href="https://www.linkedin.com/in/mtsaldaris/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-text dark:text-brand-dark-text hover:text-brand-primary dark:hover:text-brand-dark-primary transition-colors"
+                  className="text-brand-text transition-colors hover:text-brand-primary dark:text-brand-dark-text dark:hover:text-brand-dark-primary"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Linkedin className="w-5 h-5" />
+                  <Linkedin className="h-5 w-5" />
                 </motion.a>
                 <motion.a
                   href="mailto:mtsaldaris@gmail.com"
-                  className="text-brand-text dark:text-brand-dark-text hover:text-brand-primary dark:hover:text-brand-dark-primary transition-colors"
+                  className="text-brand-text transition-colors hover:text-brand-primary dark:text-brand-dark-text dark:hover:text-brand-dark-primary"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Mail className="w-5 h-5" />
+                  <Mail className="h-5 w-5" />
                 </motion.a>
               </div>
               <ThemeToggle />
               <button
-                className="md:hidden p-2 text-brand-text dark:text-brand-dark-text hover:text-brand-primary dark:hover:text-brand-dark-primary"
+                className="p-2 text-brand-text hover:text-brand-primary dark:text-brand-dark-text dark:hover:text-brand-dark-primary md:hidden"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               >
-                <Menu className="w-6 h-6" />
+                <Menu className="h-6 w-6" />
               </button>
             </div>
           </div>
@@ -188,51 +189,52 @@ export default function Navigation() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden bg-brand-light dark:bg-brand-dark border-t border-brand-muted/10 dark:border-brand-dark-muted/10"
+            className="border-t border-brand-muted/10 bg-brand-light dark:border-brand-dark-muted/10 dark:bg-brand-dark md:hidden"
           >
-            <div className="px-4 py-2 space-y-2">
+            <div className="space-y-2 px-4 py-2">
               {sections.map((section) => (
                 <motion.button
                   key={section.id}
                   onClick={() => scrollToSection(section.id)}
-                  className={`w-full text-left px-3 py-2 text-sm font-medium transition-colors ${activeSection === section.id
-                    ? 'text-brand-primary dark:text-brand-dark-primary'
-                    : 'text-brand-text dark:text-brand-dark-text hover:text-brand-primary dark:hover:text-brand-dark-primary'
-                    }`}
+                  className={`w-full px-3 py-2 text-left text-sm font-medium transition-colors ${
+                    activeSection === section.id
+                      ? 'text-brand-primary dark:text-brand-dark-primary'
+                      : 'text-brand-text hover:text-brand-primary dark:text-brand-dark-text dark:hover:text-brand-dark-primary'
+                  }`}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   {section.label}
                 </motion.button>
               ))}
-              <div className="flex items-center justify-center space-x-4 pt-2 border-t border-brand-muted/10 dark:border-brand-dark-muted/10">
+              <div className="flex items-center justify-center space-x-4 border-t border-brand-muted/10 pt-2 dark:border-brand-dark-muted/10">
                 <motion.a
                   href="https://github.com/myrontsaldaris"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-text dark:text-brand-dark-text hover:text-brand-primary dark:hover:text-brand-dark-primary transition-colors"
+                  className="text-brand-text transition-colors hover:text-brand-primary dark:text-brand-dark-text dark:hover:text-brand-dark-primary"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Github className="w-5 h-5" />
+                  <Github className="h-5 w-5" />
                 </motion.a>
                 <motion.a
                   href="https://www.linkedin.com/in/myron-tsaldaris/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-text dark:text-brand-dark-text hover:text-brand-primary dark:hover:text-brand-dark-primary transition-colors"
+                  className="text-brand-text transition-colors hover:text-brand-primary dark:text-brand-dark-text dark:hover:text-brand-dark-primary"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Linkedin className="w-5 h-5" />
+                  <Linkedin className="h-5 w-5" />
                 </motion.a>
                 <motion.a
                   href="mailto:myron.tsaldaris@gmail.com"
-                  className="text-brand-text dark:text-brand-dark-text hover:text-brand-primary dark:hover:text-brand-dark-primary transition-colors"
+                  className="text-brand-text transition-colors hover:text-brand-primary dark:text-brand-dark-text dark:hover:text-brand-dark-primary"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Mail className="w-5 h-5" />
+                  <Mail className="h-5 w-5" />
                 </motion.a>
               </div>
             </div>
@@ -247,11 +249,11 @@ export default function Navigation() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
           onClick={scrollToTop}
-          className="fixed bottom-4 right-4 p-3 rounded-full bg-brand-primary/10 dark:bg-brand-dark-primary/10 hover:bg-brand-primary/20 dark:hover:bg-brand-dark-primary/20 text-brand-primary dark:text-brand-dark-primary transition-colors z-50"
+          className="fixed bottom-4 right-4 z-50 rounded-full bg-brand-primary/10 p-3 text-brand-primary transition-colors hover:bg-brand-primary/20 dark:bg-brand-dark-primary/10 dark:text-brand-dark-primary dark:hover:bg-brand-dark-primary/20"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
-          <ArrowUp className="w-5 h-5" />
+          <ArrowUp className="h-5 w-5" />
         </motion.button>
       )}
     </>

@@ -11,16 +11,16 @@ export default function ApiPreview() {
     try {
       const response = await fetch(endpoint)
       const data = await response.json()
-      setResponses(prev => ({ ...prev, [slug]: data }))
+      setResponses((prev) => ({ ...prev, [slug]: data }))
     } catch {
-      setResponses(prev => ({ ...prev, [slug]: { error: 'Failed to fetch data' } }))
+      setResponses((prev) => ({ ...prev, [slug]: { error: 'Failed to fetch data' } }))
     }
   }
 
   return (
     <section id="api-preview" className="py-12">
-      <h2 className="text-3xl font-bold mb-6">API Playground Preview</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <h2 className="mb-6 text-3xl font-bold">API Playground Preview</h2>
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         {apiList.map((api) => (
           <ApiCard
             key={api.slug}

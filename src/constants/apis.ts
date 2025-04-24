@@ -5,7 +5,7 @@ export const apiList = [
     description: 'Returns a random quote for developers.',
     endpoint: '/api/quote',
     tags: ['fun', 'text', 'random'],
-    buttonText: 'Get Quote'
+    buttonText: 'Get Quote',
   },
   {
     slug: 'github-repos',
@@ -13,6 +13,6 @@ export const apiList = [
     description: 'Fetches starred repos from GitHub.',
     endpoint: '/api/github/repos',
     tags: ['github', 'projects'],
-    buttonText: 'Fetch Repos'
+    buttonText: 'Fetch Repos',
   },
 ]

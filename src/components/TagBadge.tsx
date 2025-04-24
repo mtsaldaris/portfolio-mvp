@@ -1,6 +1,6 @@
 export default function TagBadge({ label }: { label: string }) {
   return (
-    <span className="px-2 py-1 text-xs rounded bg-brand-primary/10 dark:bg-brand-dark-primary/10 text-brand-primary dark:text-brand-dark-primary">
+    <span className="rounded bg-brand-primary/10 px-2 py-1 text-xs text-brand-primary dark:bg-brand-dark-primary/10 dark:text-brand-dark-primary">
       {label}
     </span>
   )

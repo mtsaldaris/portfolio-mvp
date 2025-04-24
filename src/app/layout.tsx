@@ -8,14 +8,11 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Myron Tsaldaris - Backend Developer',
-  description: 'Portfolio of Myron Tsaldaris, a backend developer specializing in system architecture and API design.',
+  description:
+    'Portfolio of Myron Tsaldaris, a backend developer specializing in system architecture and API design.',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>

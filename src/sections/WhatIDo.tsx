@@ -9,24 +9,27 @@ const processSteps = [
   {
     icon: FiLayout,
     title: 'Plan',
-    description: 'I design robust APIs and clear contracts, focusing on scalability and developer experience. My approach emphasizes thorough documentation and future-proof architecture.',
+    description:
+      'I design robust APIs and clear contracts, focusing on scalability and developer experience. My approach emphasizes thorough documentation and future-proof architecture.',
     skills: ['API Design', 'OpenAPI Specs', 'Domain Modeling'],
-    color: 'from-blue-500/20 to-purple-500/20'
+    color: 'from-blue-500/20 to-purple-500/20',
   },
   {
     icon: FiCode,
     title: 'Build',
-    description: 'Test-driven development is at the core of my building process. I create maintainable solutions using Spring Boot, ensuring high code quality through automated testing and CI/CD.',
+    description:
+      'Test-driven development is at the core of my building process. I create maintainable solutions using Spring Boot, ensuring high code quality through automated testing and CI/CD.',
     skills: ['Spring Boot', 'TDD', 'CI/CD'],
-    color: 'from-purple-500/20 to-pink-500/20'
+    color: 'from-purple-500/20 to-pink-500/20',
   },
   {
     icon: TbCloudUp,
     title: 'Ship',
-    description: 'Deployment isn\'t the end - it\'s the beginning. I set up comprehensive monitoring, maintain clean logs, and ensure infrastructure reliability for production systems.',
+    description:
+      "Deployment isn't the end - it's the beginning. I set up comprehensive monitoring, maintain clean logs, and ensure infrastructure reliability for production systems.",
     skills: ['Monitoring', 'Infrastructure', 'Observability'],
-    color: 'from-pink-500/20 to-orange-500/20'
-  }
+    color: 'from-pink-500/20 to-orange-500/20',
+  },
 ]
 
 export default function WhatIDo() {
@@ -34,7 +37,7 @@ export default function WhatIDo() {
   const [isAnimating, setIsAnimating] = useState(false)
   const [isComplete, setIsComplete] = useState(false)
   const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
+  const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
 
   useEffect(() => {
     if (isInView && activeStep === -1) {
@@ -45,7 +48,7 @@ export default function WhatIDo() {
   const progressToNextStep = async () => {
     if (isAnimating) return
     setIsAnimating(true)
-    
+
     if (activeStep >= processSteps.length - 1) {
       // When the last card finishes, wait a moment then reset all cards
       setTimeout(() => {
@@ -53,22 +56,22 @@ export default function WhatIDo() {
         setIsComplete(true)
       }, 500)
     } else {
-      setActiveStep(prev => prev + 1)
+      setActiveStep((prev) => prev + 1)
     }
-    
+
     setTimeout(() => setIsAnimating(false), 800)
   }
 
   return (
-    <section id="what-i-do" className="py-20 px-4 relative overflow-hidden" ref={sectionRef}>
+    <section id="what-i-do" className="relative overflow-hidden px-4 py-20" ref={sectionRef}>
       {/* Section header */}
-      <div className="max-w-6xl mx-auto mb-16 text-center">
-        <motion.h2 
+      <div className="mx-auto mb-16 max-w-6xl text-center">
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-3xl md:text-4xl font-bold mb-4"
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="mb-4 text-3xl font-bold md:text-4xl"
         >
           What I Do
         </motion.h2>
@@ -76,8 +79,8 @@ export default function WhatIDo() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="text-lg text-brand-muted dark:text-brand-dark-muted max-w-2xl mx-auto"
+          transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+          className="mx-auto max-w-2xl text-lg text-brand-muted dark:text-brand-dark-muted"
         >
           I transform complex requirements into scalable solutions through a systematic approach
           that emphasizes quality, maintainability, and reliability.
@@ -85,80 +88,95 @@ export default function WhatIDo() {
       </div>
 
       {/* Process grid */}
-      <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 md:gap-12">
+      <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-3 md:gap-12">
         {processSteps.map((step, index) => (
           <motion.div
             key={step.title}
-            className={`relative cursor-pointer group ${index > activeStep || isComplete ? 'opacity-40' : ''} ${activeStep === -1 ? 'opacity-40' : ''}`}
+            className={`group relative cursor-pointer ${index > activeStep || isComplete ? 'opacity-40' : ''} ${activeStep === -1 ? 'opacity-40' : ''}`}
             onClick={() => index <= activeStep + 1 && !isComplete && progressToNextStep()}
-            whileHover={index <= activeStep + 1 && !isComplete ? { 
-              scale: 1.02,
-              transition: { duration: 0.4, ease: "easeOut" }
-            } : {}}
+            whileHover={
+              index <= activeStep + 1 && !isComplete
+                ? {
+                    scale: 1.02,
+                    transition: { duration: 0.4, ease: 'easeOut' },
+                  }
+                : {}
+            }
             initial={{ opacity: 0, y: 40 }}
-            animate={{ 
+            animate={{
               opacity: 1,
               y: 0,
               transition: {
                 duration: 0.8,
                 delay: index * 0.3,
-                ease: "easeOut"
-              }
+                ease: 'easeOut',
+              },
             }}
           >
             {/* Card */}
-            <div className={`relative h-full p-6 rounded-2xl bg-white/10 hover:bg-white/20 dark:bg-[#1a1a1a]/50 dark:hover:bg-[#1a1a1a]/70 border ${
-              index === activeStep && !isComplete ? 'border-brand-primary dark:border-brand-dark-primary shadow-lg shadow-brand-primary/10' : 'border-[#333333]/10 dark:border-[#333333]/30'
-            } backdrop-blur-sm transition-all duration-500 overflow-hidden`}>
+            <div
+              className={`relative h-full rounded-2xl border bg-white/10 p-6 hover:bg-white/20 dark:bg-[#1a1a1a]/50 dark:hover:bg-[#1a1a1a]/70 ${
+                index === activeStep && !isComplete
+                  ? 'border-brand-primary shadow-lg shadow-brand-primary/10 dark:border-brand-dark-primary'
+                  : 'border-[#333333]/10 dark:border-[#333333]/30'
+              } overflow-hidden backdrop-blur-sm transition-all duration-500`}
+            >
               {/* Purple haze background for active card */}
               {index === activeStep && activeStep !== -1 && !isComplete && (
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-tr from-brand-primary/5 via-brand-primary/10 to-transparent dark:from-brand-dark-primary/5 dark:via-brand-dark-primary/10"
-                  initial={{ y: "100%" }}
-                  animate={{ y: "0%" }}
-                  transition={{ 
+                  initial={{ y: '100%' }}
+                  animate={{ y: '0%' }}
+                  transition={{
                     duration: 3,
-                    ease: "easeInOut",
+                    ease: 'easeInOut',
                   }}
                   onAnimationComplete={progressToNextStep}
                 />
               )}
 
               {/* Icon with animated container */}
-              <motion.div 
-                className="mb-6 relative"
-                animate={{ 
+              <motion.div
+                className="relative mb-6"
+                animate={{
                   scale: index === activeStep && !isComplete ? [1, 1.05, 1] : 1,
                 }}
-                transition={{ 
+                transition={{
                   duration: 2,
                   repeat: index === activeStep && !isComplete ? Infinity : 0,
-                  ease: "easeInOut"
+                  ease: 'easeInOut',
                 }}
               >
-                <div className={`w-14 h-14 rounded-xl bg-white/10 dark:bg-[#1a1a1a]/50 
-                              flex items-center justify-center backdrop-blur-sm
-                              transition-all duration-500 ease-out
-                              ${index === activeStep && !isComplete ? 'ring-2 ring-brand-primary/50 dark:ring-brand-dark-primary/50 ring-offset-4 ring-offset-transparent' : ''}`}>
-                  <step.icon className={`w-7 h-7 transition-colors duration-500 ${
-                    index === activeStep && !isComplete ? 'text-brand-primary dark:text-brand-dark-primary' : 'text-brand-text/60 dark:text-brand-dark-text/60'
-                  }`} />
+                <div
+                  className={`flex h-14 w-14 items-center justify-center rounded-xl bg-white/10 backdrop-blur-sm transition-all duration-500 ease-out dark:bg-[#1a1a1a]/50 ${index === activeStep && !isComplete ? 'ring-2 ring-brand-primary/50 ring-offset-4 ring-offset-transparent dark:ring-brand-dark-primary/50' : ''}`}
+                >
+                  <step.icon
+                    className={`h-7 w-7 transition-colors duration-500 ${
+                      index === activeStep && !isComplete
+                        ? 'text-brand-primary dark:text-brand-dark-primary'
+                        : 'text-brand-text/60 dark:text-brand-dark-text/60'
+                    }`}
+                  />
                 </div>
               </motion.div>
 
               <motion.div
-                animate={{ 
-                  opacity: (index <= activeStep && !isComplete) ? 1 : 0.7,
+                animate={{
+                  opacity: index <= activeStep && !isComplete ? 1 : 0.7,
                 }}
                 transition={{ duration: 0.5 }}
                 className="relative"
               >
-                <h3 className={`text-xl font-semibold mb-3 transition-colors duration-500 ${
-                  index === activeStep && !isComplete ? 'text-brand-primary dark:text-brand-dark-primary' : 'text-brand-text dark:text-brand-dark-text'
-                }`}>
+                <h3
+                  className={`mb-3 text-xl font-semibold transition-colors duration-500 ${
+                    index === activeStep && !isComplete
+                      ? 'text-brand-primary dark:text-brand-dark-primary'
+                      : 'text-brand-text dark:text-brand-dark-text'
+                  }`}
+                >
                   {step.title}
                 </h3>
-                <p className="text-brand-text/70 dark:text-brand-dark-text/70 mb-4 leading-relaxed">
+                <p className="mb-4 leading-relaxed text-brand-text/70 dark:text-brand-dark-text/70">
                   {step.description}
                 </p>
 
@@ -166,10 +184,11 @@ export default function WhatIDo() {
                   {step.skills.map((skill) => (
                     <span
                       key={skill}
-                      className={`px-3 py-1 text-sm rounded-full transition-all duration-500
-                                ${index === activeStep && !isComplete
-                                  ? 'bg-brand-primary/20 dark:bg-brand-dark-primary/20 text-brand-primary dark:text-brand-dark-primary ring-1 ring-brand-primary/30 dark:ring-brand-dark-primary/30' 
-                                  : 'bg-white/10 dark:bg-[#1a1a1a]/30 text-brand-text/70 dark:text-brand-dark-text/70'}`}
+                      className={`rounded-full px-3 py-1 text-sm transition-all duration-500 ${
+                        index === activeStep && !isComplete
+                          ? 'bg-brand-primary/20 text-brand-primary ring-1 ring-brand-primary/30 dark:bg-brand-dark-primary/20 dark:text-brand-dark-primary dark:ring-brand-dark-primary/30'
+                          : 'bg-white/10 text-brand-text/70 dark:bg-[#1a1a1a]/30 dark:text-brand-dark-text/70'
+                      }`}
                     >
                       {skill}
                     </span>
@@ -180,14 +199,24 @@ export default function WhatIDo() {
 
             {/* Arrow to next step */}
             {index < processSteps.length - 1 && index <= activeStep && !isComplete && (
-              <motion.div 
-                className="hidden md:flex absolute top-1/2 -right-8 transform -translate-y-1/2"
+              <motion.div
+                className="absolute -right-8 top-1/2 hidden -translate-y-1/2 transform md:flex"
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                <svg className="w-5 h-5 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <svg
+                  className="h-5 w-5 text-brand-primary"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
                 </svg>
               </motion.div>
             )}
