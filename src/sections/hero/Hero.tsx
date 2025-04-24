@@ -9,7 +9,7 @@ const stats = [
   {
     icon: Code2,
     title: 'Production-Ready',
-    description: 'Shipping real software used by thousands. Secure, scalable, and production-ready',
+    description: 'I ship real software at scale; secure, tested, and built for production.',
     variant: 'blue',
   },
   {
@@ -21,7 +21,7 @@ const stats = [
   {
     icon: Rocket,
     title: 'Built to Grow',
-    description: 'Always evolving. I&apos;m here to learn, level up, and build things that matter',
+    description: 'Always evolving. I\'m here to learn, level up, and build things that matter',
     variant: 'purple',
   },
 ] as const
