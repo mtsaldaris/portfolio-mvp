@@ -8,7 +8,7 @@ import StatCard from './StatCard'
 const stats = [
   {
     icon: Code2,
-    title: 'Enterprise-Grade',
+    title: 'Production-Ready',
     description: 'Shipping real software used by thousands. Secure, scalable, and production-ready',
     variant: 'blue',
   },
@@ -30,8 +30,9 @@ export default function Hero() {
   return (
     <section
       id="about"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-12 pb-24 md:py-20 lg:px-12"
+      className="relative flex items-center justify-center overflow-hidden px-6 py-20 md:py-28 lg:px-12"
     >
+      {/* Animated background lights */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -left-1/2 -top-1/2 h-full w-full animate-pulse rounded-full bg-gradient-to-r from-brand-primary/20 to-brand-secondary/20 blur-3xl dark:from-brand-dark-primary/20 dark:to-brand-dark-secondary/20" />
         <div
@@ -40,13 +41,52 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-8 md:grid-cols-5 md:gap-12">
+      <div className="relative mx-auto grid w-full max-w-[90rem] grid-cols-1 items-center gap-8 md:grid-cols-5 md:gap-12">
+        {/* Right Column - Image */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="relative order-first col-span-1 flex items-center justify-center md:order-last md:col-span-2"
+        >
+          {/* Circular frame for portrait */}
+          <div className="relative aspect-square w-[280px] md:w-full md:max-w-[420px]">
+            {/* Animated background circle */}
+            <motion.div
+              className="absolute inset-0 rounded-full"
+              style={{
+                background:
+                  'radial-gradient(circle, rgba(59,130,246,0.2) 0%, rgba(139,92,246,0.2) 50%, rgba(236,72,153,0.2) 100%)',
+                filter: 'blur(30px)',
+              }}
+              animate={{
+                scale: [1, 1.2, 1],
+                rotate: [0, 180, 360],
+              }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: 'linear',
+              }}
+            />
+
+            {/* Portrait container */}
+            <div className="absolute inset-0 overflow-hidden rounded-full border border-[#333333]/10 bg-[#1a1a1a]/20 dark:border-[#333333]/30 dark:bg-[#1a1a1a]/50">
+              <img
+                src="/images/myron-avatar.png"
+                alt="Myron's portrait"
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+        </motion.div>
+
         {/* Left Column - Text Content */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="order-last col-span-3 space-y-6 md:order-first md:space-y-8"
+          className="order-last col-span-1 space-y-8 md:order-first md:col-span-3 md:space-y-10"
         >
           <div className="space-y-4 md:space-y-6">
             <h1 className="text-center text-3xl font-bold text-brand-text dark:text-brand-dark-text md:text-left md:text-5xl">
@@ -101,45 +141,6 @@ export default function Hero() {
             ))}
           </div>
         </motion.div>
-
-        {/* Right Column - Image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative order-first col-span-2 md:order-last"
-        >
-          {/* Circular frame for portrait */}
-          <div className="relative mx-auto aspect-square w-full max-w-[360px] md:max-w-[420px]">
-            {/* Animated background circle */}
-            <motion.div
-              className="absolute inset-0 rounded-full"
-              style={{
-                background:
-                  'radial-gradient(circle, rgba(59,130,246,0.2) 0%, rgba(139,92,246,0.2) 50%, rgba(236,72,153,0.2) 100%)',
-                filter: 'blur(30px)',
-              }}
-              animate={{
-                scale: [1, 1.2, 1],
-                rotate: [0, 180, 360],
-              }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-            />
-
-            {/* Portrait container */}
-            <div className="absolute inset-0 overflow-hidden rounded-full border border-[#333333]/10 bg-[#1a1a1a]/20 dark:border-[#333333]/30 dark:bg-[#1a1a1a]/50">
-              <img
-                src="/images/myron-avatar.png"
-                alt="Myron's portrait"
-                className="h-full w-full object-cover"
-              />
-            </div>
-          </div>
-        </motion.div>
       </div>
 
       {/* Scroll indicator */}
@@ -147,12 +148,14 @@ export default function Hero() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.2 }}
-        className="absolute inset-x-0 bottom-8 flex items-center justify-center"
+        className="absolute inset-x-0 bottom-0 flex items-center justify-center pb-8 md:pb-12"
       >
         <div className="flex flex-col items-center">
-          <p className="text-sm text-brand-muted dark:text-brand-dark-muted">Scroll to explore</p>
+          <p className="mb-1 text-sm text-brand-muted dark:text-brand-dark-muted">
+            Scroll to explore
+          </p>
           <svg
-            className="mt-1 h-4 w-4 animate-bounce text-brand-muted dark:text-brand-dark-muted"
+            className="h-4 w-4 animate-bounce text-brand-muted dark:text-brand-dark-muted"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
