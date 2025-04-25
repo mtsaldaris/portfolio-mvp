@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import { motion, useAnimation } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { LucideIcon } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
