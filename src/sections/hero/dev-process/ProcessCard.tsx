@@ -18,7 +18,6 @@ export default function ProcessCard({
   tags,
   index,
 }: ProcessCardProps) {
-  const controls = useAnimation()
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
@@ -97,12 +96,14 @@ export default function ProcessCard({
                 <motion.span
                   key={tag}
                   className={cn(
-                    'rounded-full px-3 py-1 text-sm font-medium transition-all duration-300',
-                    'bg-brand-secondary/5 text-brand-secondary hover:bg-brand-secondary/10',
-                    'dark:bg-brand-secondary/10 dark:hover:bg-brand-secondary/20'
+                    'rounded-lg px-2.5 py-1 text-xs font-medium tracking-wide transition-all duration-300',
+                    'bg-brand-secondary/5 text-brand-secondary border border-brand-secondary/10',
+                    'hover:bg-brand-secondary/10 hover:border-brand-secondary/20',
+                    'dark:bg-brand-secondary/10 dark:border-brand-secondary/20',
+                    'dark:hover:bg-brand-secondary/20 dark:hover:border-brand-secondary/30'
                   )}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   {tag}
                 </motion.span>

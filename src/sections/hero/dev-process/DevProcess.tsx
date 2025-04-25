@@ -19,21 +19,21 @@ export default function DevProcess() {
       description:
         'Designing thoughtful system architectures that scale with clarity and confidence. I love building APIs that feel intuitive to use and easy to evolve.',
       // description: 'Crafting elegant system architectures with domain-driven design. I aspire to build scalable APIs that developers love to use, backed by clear documentation and future-proof design patterns.',
-      tags: ['System Design', 'API-First', 'DDD'],
+      tags: ['Domain-Driven Design', 'Event-Driven', 'Microservices', 'API Design'],
     },
     {
       icon: CodeSquare,
       title: 'Engineer',
       description:
         'Writing clean, tested, and maintainable code is my passion. I build robust microservices with a focus on clarity, quality, and developer experience.',
-      tags: ['Spring Boot', 'Clean Code', 'TDD'],
+      tags: ['TypeScript', 'Spring Boot', 'Next.js', 'PostgreSQL'],
     },
     {
       icon: Rocket,
       title: 'Deliver',
       description:
         'Bringing solutions to life with modern DevOps practices. From CI/CD pipelines to comprehensive monitoring, I ensure your systems run reliably and scale effortlessly in production.',
-      tags: ['DevOps', 'Monitoring', 'Cloud'],
+      tags: ['Docker', 'AWS', 'CI/CD', 'Observability'],
     },
   ]
 
