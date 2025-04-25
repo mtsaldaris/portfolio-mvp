@@ -20,10 +20,10 @@ export default function Navigation() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 80
-      const aboutSection = document.getElementById('about')
-      const projectsSection = document.getElementById('projects')
-      const apiSection = document.getElementById('api-preview')
-      const contactSection = document.getElementById('contact')
+      const aboutSection = document.getElementById('about') as HTMLElement
+      const projectsSection = document.getElementById('projects') as HTMLElement
+      const apiSection = document.getElementById('api-preview') as HTMLElement
+      const contactSection = document.getElementById('contact') as HTMLElement
 
       if (!aboutSection || !projectsSection || !apiSection || !contactSection) return
 
@@ -131,7 +131,7 @@ export default function Navigation() {
                   {section.label}
                   {activeSection === section.id && (
                     <motion.div
-                      className="bg-gradient-primary absolute bottom-0 left-0 right-0 h-0.5"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary dark:from-brand-dark-secondary dark:to-brand-dark-primary"
                       layoutId="activeSection"
                       transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                     />
@@ -189,14 +189,14 @@ export default function Navigation() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="border-t border-brand-muted/10 bg-brand-light dark:border-brand-dark-muted/10 dark:bg-brand-dark md:hidden"
+            className="border-t border-brand-muted/10 bg-brand-light/80 backdrop-blur-md dark:border-brand-dark-muted/10 dark:bg-brand-dark/80 md:hidden"
           >
             <div className="space-y-2 px-4 py-2">
               {sections.map((section) => (
                 <motion.button
                   key={section.id}
                   onClick={() => scrollToSection(section.id)}
-                  className={`w-full px-3 py-2 text-left text-sm font-medium transition-colors ${
+                  className={`relative w-full px-3 py-2 text-left text-sm font-medium transition-colors ${
                     activeSection === section.id
                       ? 'text-brand-primary dark:text-brand-dark-primary'
                       : 'text-brand-text hover:text-brand-primary dark:text-brand-dark-text dark:hover:text-brand-dark-primary'
@@ -205,6 +205,13 @@ export default function Navigation() {
                   whileTap={{ scale: 0.98 }}
                 >
                   {section.label}
+                  {activeSection === section.id && (
+                    <motion.div
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary dark:from-brand-dark-primary dark:to-brand-dark-secondary"
+                      layoutId="activeMobileSection"
+                      transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+                    />
+                  )}
                 </motion.button>
               ))}
               <div className="flex items-center justify-center space-x-4 border-t border-brand-muted/10 pt-2 dark:border-brand-dark-muted/10">

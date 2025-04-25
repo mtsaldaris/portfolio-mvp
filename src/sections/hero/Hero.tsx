@@ -30,7 +30,7 @@ const stats = [
 export default function Hero() {
   return (
     <section
-      id="about"
+      id="hero"
       className="relative flex items-center justify-center overflow-hidden px-6 py-20 md:py-28 lg:px-12"
     >
       {/* Animated background lights */}
