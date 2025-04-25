@@ -113,7 +113,7 @@ export default function Contact() {
               <strong>
                 {location.city}, {location.country}
               </strong>{' '}
-              — let’s meet up!
+              — let’s grab a coffee ☕️
             </span>
           )}
         </motion.div>

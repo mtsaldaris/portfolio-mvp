@@ -1,27 +1,28 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Code2, Rocket, Workflow } from 'lucide-react'
+import {Code2, Rocket, GitBranch } from 'lucide-react'
 import SkillsRoulette from './SkillsRoulette'
 import StatCard from './StatCard'
 
 const stats = [
   {
-    icon: Code2,
-    title: 'Production-Ready',
-    description: 'I ship real software at scale; secure, tested, and built for production.',
+    icon: Rocket,
+    title: 'Product Minded',
+    // description: 'Engineering solutions with purpose. I focus on user value, business impact, and long-term scalability.',
+    description: 'Building systems that scale with your business. I bridge technical excellence with real-world impact.',
     variant: 'blue',
   },
   {
-    icon: Workflow,
-    title: 'API-Centric',
-    description: 'I design clear, consistent APIs that form the backbone of modern applications',
+    icon: Code2,
+    title: 'API First',
+    description: 'Crafting developer-centric APIs that power modern B2B platforms. Your backend is your product.',
     variant: 'teal',
   },
   {
-    icon: Rocket,
-    title: 'Built to Grow',
-    description: 'Always evolving. I\'m here to learn, level up, and build things that matter',
+    icon: GitBranch,
+    title: 'Perpetual Learner',
+    description: 'Always building, always evolving. Each system teaches new patterns, every challenge refines the craft.',
     variant: 'purple',
   },
 ] as const
@@ -86,7 +87,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="order-last col-span-1 space-y-8 md:order-first md:col-span-3 md:space-y-10"
+          className="order-last col-span-1 space-y-6 md:order-first md:col-span-3 md:space-y-8"
         >
           <div className="space-y-4 md:space-y-6">
             <h1 className="text-center text-3xl font-bold text-brand-text dark:text-brand-dark-text md:text-left md:text-5xl">
@@ -95,30 +96,11 @@ export default function Hero() {
             </h1>
             <h2 className="text-center text-xl font-semibold text-brand-muted dark:text-brand-dark-muted md:text-left md:text-3xl">
               <span className="text-brand-primary dark:text-brand-dark-primary">{'{ '}</span>
-              Full Stack
-              <span className="text-brand-primary dark:text-brand-dark-primary">{' }'}</span>{' '}
-              Developer
+              Software Engineer
+              <span className="text-brand-primary dark:text-brand-dark-primary">{' }'}</span>
             </h2>
             <p className="mx-auto max-w-lg text-center text-base text-brand-muted dark:text-brand-dark-muted md:mx-0 md:text-left md:text-lg">
-              With expertise in{' '}
-              <span className="text-brand-secondary dark:text-brand-dark-secondary">Node.js</span>,
-              <span className="text-brand-secondary dark:text-brand-dark-secondary"> React</span>,
-              and
-              <span className="text-brand-secondary dark:text-brand-dark-secondary">
-                {' '}
-                TypeScript
-              </span>
-              , I create web solutions that are both innovative and robust. Passionate about
-              <span className="text-brand-secondary dark:text-brand-dark-secondary">
-                {' '}
-                clean code{' '}
-              </span>
-              and
-              <span className="text-brand-secondary dark:text-brand-dark-secondary">
-                {' '}
-                scalable architecture
-              </span>
-              .
+              Building enterprise B2B platforms that serve millions, using <span className="text-brand-secondary dark:text-brand-dark-secondary">cutting-edge tech</span> and modern architectures. Passionate about crafting <span className="text-brand-secondary dark:text-brand-dark-secondary">clean APIs</span> and <span className="text-brand-secondary dark:text-brand-dark-secondary">scalable systems</span> that empower developers and drive business value.
             </p>
           </div>
 
@@ -128,7 +110,7 @@ export default function Hero() {
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
             {stats.map((stat, index) => (
               <StatCard
                 key={stat.title}
