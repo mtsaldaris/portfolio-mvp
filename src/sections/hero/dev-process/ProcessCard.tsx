@@ -31,32 +31,35 @@ export default function ProcessCard({
 
   const mobileAnimation = {
     initial: { opacity: 0, y: 20 },
-    whileInView: {
-      opacity: 1,
+    whileInView: { 
+      opacity: 1, 
       y: 0,
-      transition: {
-        duration: 0.5,
-        delay: index * 0.1,
-      },
+      transition: { 
+        duration: 0.7,
+        delay: index * 0.2
+      }
     },
-    viewport: { once: true, margin: '-10%' },
+    viewport: { once: true, margin: "-20%" }
   }
 
   const desktopAnimation = {
     initial: { opacity: 0, x: -20 },
-    whileInView: {
-      opacity: 1,
+    whileInView: { 
+      opacity: 1, 
       x: 0,
-      transition: {
+      transition: { 
         duration: 0.5,
-        delay: index * 0.2,
-      },
+        delay: index * 0.2 
+      }
     },
-    viewport: { once: true, margin: '-20%' },
+    viewport: { once: true, margin: "-20%" }
   }
 
   return (
-    <motion.div {...(isMobile ? mobileAnimation : desktopAnimation)} className="relative">
+    <motion.div
+      {...(isMobile ? mobileAnimation : desktopAnimation)}
+      className="relative"
+    >
       {/* Card Content */}
       <div
         className={
@@ -65,7 +68,7 @@ export default function ProcessCard({
       >
         <div className="flex items-start gap-6">
           {/* Icon with animation */}
-          <motion.div
+          <motion.div 
             className={cn(
               'flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-all duration-300',
               'bg-brand-primary/5 text-brand-primary group-hover:bg-brand-primary/10',
@@ -79,7 +82,7 @@ export default function ProcessCard({
 
           <div className="flex-1">
             {/* Content */}
-            <motion.h3
+            <motion.h3 
               className="mb-2 text-2xl font-bold text-gray-800 transition-colors dark:text-white"
               initial={{ opacity: 0.8 }}
               whileHover={{ opacity: 1 }}
@@ -115,15 +118,15 @@ export default function ProcessCard({
         {/* Step indicator with pulse animation */}
         <div
           className={cn(
-            'absolute -left-[41px] top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full',
+            'absolute -left-[41px] sm:-left-[41px] top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full',
             'border-2 border-brand-primary bg-white shadow-sm transition-colors',
             'dark:bg-brand-dark dark:shadow-[0_0_10px_rgba(0,0,0,0.2)]'
           )}
         >
-          <motion.div
+          <motion.div 
             className="h-2 w-2 rounded-full bg-brand-primary"
             initial={{ scale: 0.8 }}
-            animate={{
+            animate={{ 
               scale: [0.8, 1.2, 0.8],
               opacity: [0.6, 1, 0.6],
             }}
@@ -138,9 +141,9 @@ export default function ProcessCard({
         {/* Connection line for mobile */}
         {isMobile && index < 2 && (
           <motion.div
-            className="absolute -bottom-6 left-1/2 h-12 w-px -translate-x-1/2 bg-gradient-to-b from-brand-primary/20 to-transparent"
-            initial={{ scaleY: 0 }}
-            whileInView={{ scaleY: 1 }}
+            className="absolute -bottom-12 left-1/2 h-12 w-px -translate-x-1/2 bg-gradient-to-b from-brand-primary/20 to-transparent"
+            initial={{ scaleY: 0, opacity: 0 }}
+            whileInView={{ scaleY: 1, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
           />

@@ -43,7 +43,7 @@ export default function DevProcess() {
       className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 lg:px-8"
     >
       {/* Progress Line */}
-      <div className="absolute left-0 top-0 h-full w-[2px] bg-gradient-to-b from-transparent via-brand-primary/20 to-transparent">
+      <div className="absolute left-4 sm:left-0 top-0 h-full w-[2px] bg-gradient-to-b from-transparent via-brand-primary/20 to-transparent">
         <motion.div
           className="h-full w-full bg-gradient-to-b from-transparent via-brand-primary to-transparent"
           style={{
@@ -53,7 +53,7 @@ export default function DevProcess() {
         />
       </div>
 
-      <div className="relative pl-8">
+      <div className="relative pl-12 sm:pl-8">
         {/* Section Header */}
         <div className="mb-16">
           <motion.span
@@ -89,7 +89,7 @@ export default function DevProcess() {
         </div>
 
         {/* Journey Steps */}
-        <div className="space-y-12">
+        <div className="space-y-16 md:space-y-12">
           {steps.map((step, index) => (
             <ProcessCard key={step.title} {...step} index={index} />
           ))}
