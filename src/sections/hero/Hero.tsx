@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import {Code2, Rocket, GitBranch } from 'lucide-react'
+import Image from 'next/image'
 import SkillsRoulette from './SkillsRoulette'
 import StatCard from './StatCard'
 
@@ -73,10 +74,13 @@ export default function Hero() {
 
             {/* Portrait container */}
             <div className="absolute inset-0 overflow-hidden rounded-full border border-[#333333]/10 bg-[#1a1a1a]/20 dark:border-[#333333]/30 dark:bg-[#1a1a1a]/50">
-              <img
+              <Image
                 src="/images/myron-avatar.png"
                 alt="Myron's portrait"
-                className="h-full w-full object-cover"
+                fill
+                sizes="(max-width: 768px) 280px, 420px"
+                priority
+                className="object-cover"
               />
             </div>
           </div>
