@@ -1,0 +1,107 @@
+import { cn } from '@/lib/utils'
+import { motion, TargetAndTransition, VariantLabels } from 'framer-motion'
+import { LucideIcon } from 'lucide-react'
+import { ReactNode } from 'react'
+
+interface BaseCardProps {
+  children?: ReactNode
+  className?: string
+  icon?: LucideIcon
+  title?: ReactNode
+  description?: ReactNode
+  variant?: 'default' | 'process' | 'stat' | 'api'
+  animation?: {
+    initial?: TargetAndTransition | VariantLabels
+    whileInView?: TargetAndTransition | VariantLabels
+    whileHover?: TargetAndTransition | VariantLabels
+    viewport?: Record<string, unknown>
+    transition?: Record<string, unknown>
+  }
+  header?: ReactNode
+  footer?: ReactNode
+}
+
+export default function BaseCard({
+  children,
+  className,
+  icon: Icon,
+  title,
+  description,
+  variant = 'default',
+  animation,
+  header,
+  footer,
+}: BaseCardProps) {
+  const cardStyles = {
+    default: 'rounded-2xl border border-brand-muted bg-white/80 p-6 backdrop-blur-sm transition-all duration-300 dark:border-brand-dark-muted/40 dark:bg-brand-dark/50',
+    process: 'rounded-2xl border border-brand-muted bg-white/80 p-6 backdrop-blur-sm transition-all duration-300 hover:border-brand-primary/40 hover:bg-white/90 hover:shadow-[0_0_5px] hover:shadow-brand-primary dark:border-brand-dark-muted/40 dark:bg-brand-dark/50 dark:hover:border-brand-primary/20 dark:hover:bg-brand-dark/70',
+    stat: 'rounded-xl bg-white/10 p-3 backdrop-blur-sm transition-all duration-300 hover:bg-white/20 dark:bg-brand-dark/50 dark:hover:bg-brand-dark/70 border border-brand-muted/40 dark:border-brand-dark-muted/40',
+    api: 'rounded-2xl border border-brand-muted/40 bg-white/80 p-6 backdrop-blur-sm transition-all duration-300 hover:border-brand-primary/40 hover:bg-white/90 dark:border-brand-dark-muted/40 dark:bg-brand-dark/50 dark:hover:border-brand-primary/20 dark:hover:bg-brand-dark/70'
+  }
+
+  const defaultAnimation = {
+    initial: { opacity: 0, y: 20 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 0.5 }
+  }
+
+  const cardAnimation = {
+    ...defaultAnimation,
+    ...animation
+  }
+
+  return (
+    <motion.div
+      className={cn('group relative', className)}
+      initial={cardAnimation.initial}
+      whileInView={cardAnimation.whileInView}
+      whileHover={cardAnimation.whileHover}
+      viewport={cardAnimation.viewport}
+      transition={cardAnimation.transition}
+    >
+      <div className={cn(cardStyles[variant])}>
+        {header || (Icon && title) ? (
+          <div className="mb-4">
+            {header || (
+              <div className="flex items-center gap-3">
+                {Icon && (
+                  <motion.div
+                    className={cn(
+                      'flex h-10 w-10 items-center justify-center rounded-lg',
+                      'bg-brand-primary/5 text-brand-primary transition-all duration-300 group-hover:bg-brand-primary/10',
+                      'dark:bg-brand-primary/10 dark:group-hover:bg-brand-primary/20'
+                    )}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Icon className="h-5 w-5" />
+                  </motion.div>
+                )}
+                {title && (
+                  <motion.h3
+                    className="text-2xl font-bold text-gray-800 transition-colors dark:text-white"
+                    initial={{ opacity: 0.8 }}
+                    whileHover={{ opacity: 1 }}
+                  >
+                    {title}
+                  </motion.h3>
+                )}
+              </div>
+            )}
+          </div>
+        ) : null}
+
+        {description && (
+          <div className="mb-4 text-gray-600/90 transition-colors dark:text-brand-muted">
+            {description}
+          </div>
+        )}
+
+        {children}
+
+        {footer && <div className="mt-4">{footer}</div>}
+      </div>
+    </motion.div>
+  )
+} 

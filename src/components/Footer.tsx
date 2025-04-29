@@ -14,9 +14,10 @@ export default function Footer() {
   }, [])
 
   return (
-    <footer className="border-t border-brand-muted bg-brand-bg-light px-6 py-4 dark:border-brand-dark-muted dark:bg-brand-dark">
-      <div className="flex items-center justify-between">
-        <div className="flex space-x-4">
+    <footer className="border-t border-brand-muted bg-brand-bg-light px-6 py-6 dark:border-brand-dark-muted dark:bg-brand-dark">
+      <div className="flex flex-col items-center gap-6 text-center md:flex-row md:justify-between md:text-left">
+        {/* Social Links */}
+        <div className="flex space-x-6">
           <a
             href="https://github.com/mtsaldaris"
             target="_blank"
@@ -41,8 +42,9 @@ export default function Footer() {
           </a>
         </div>
 
+        {/* Location */}
         {location && (
-          <div className="flex items-center space-x-2 text-sm text-brand-muted dark:text-brand-dark-muted">
+          <div className="flex items-center justify-center space-x-2 text-sm text-brand-muted dark:text-brand-dark-muted">
             <div className="relative">
               <div className="absolute h-2 w-2 animate-ping rounded-full bg-brand-secondary" />
               <div className="relative h-2 w-2 rounded-full bg-brand-secondary" />
@@ -53,9 +55,17 @@ export default function Footer() {
           </div>
         )}
 
-        <p className="text-sm text-brand-muted dark:text-brand-dark-muted">
+        {/* Copyright */}
+        <p className="text-sm text-brand-muted dark:text-brand-dark-muted whitespace-nowrap">
           © {new Date().getFullYear()} — Crafted by{' '}
-          <span className="text-brand-primary dark:text-brand-dark-primary">myron.codes</span>
+          <a 
+            href="https://myron.codes"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-brand-primary dark:text-brand-dark-primary hover:underline"
+          >
+            myron.codes
+          </a>
         </p>
       </div>
     </footer>

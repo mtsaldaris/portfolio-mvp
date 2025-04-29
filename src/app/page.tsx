@@ -1,8 +1,8 @@
 import ApiPreview from '@/sections/api-preview/ApiPreview'
 import Contact from '@/sections/Contact'
+import DevProcess from '@/sections/dev-process/DevProcess'
 import Hero from '@/sections/hero/Hero'
 import Projects from '@/sections/projects/Projects'
-import DevProcess from '@/sections/hero/dev-process/DevProcess'
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
         <DevProcess />
       </div>
       <Projects />
-      {/* <ApiPreview /> */}
+      <ApiPreview />
       <Contact />
     </>
   )

@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion'
 import { LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import React from 'react'
+import BaseCard from '@/components/BaseCard'
 
 interface StatCardProps {
   icon: LucideIcon
@@ -30,32 +30,37 @@ const variants = {
 } as const
 
 export default function StatCard({
-  icon: Icon,
+  icon,
   title,
   description,
   delay = 0,
   variant = 'variantA',
 }: StatCardProps) {
   const colors = variants[variant]
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay }}
-      className={cn(
-        "group p-3 rounded-xl bg-white/10 hover:bg-white/20 dark:bg-brand-dark/50 dark:hover:bg-brand-dark/70 border border-brand-muted/40 dark:border-brand-dark-muted/40 backdrop-blur-sm transition-all duration-300",
-        colors.text,
-        "hover:border-current/40 hover:shadow-[0_0_4px]"
-      )}
-    >
-      <div className="mb-2 flex items-center gap-2 border-b border-brand-muted/20 pb-2 dark:border-brand-dark-muted/20">
-        <div className={cn('flex-shrink-0 rounded-lg p-1.5 transition-colors', colors.bg)}>
-          <Icon className={cn('h-5 w-5', colors.icon)} />
-        </div>
-        <h3 className={cn('text-sm font-semibold whitespace-nowrap', colors.text)}>
-          {title}
-        </h3>
+
+  const CustomHeader = (
+    <div className="mb-2 flex items-center gap-2 border-b border-brand-muted/20 pb-2 dark:border-brand-dark-muted/20">
+      <div className={cn('flex-shrink-0 rounded-lg p-1.5 transition-colors', colors.bg)}>
+        {React.createElement(icon, { className: cn('h-5 w-5', colors.icon) })}
       </div>
+      <h3 className={cn('text-sm font-semibold whitespace-nowrap', colors.text)}>
+        {title}
+      </h3>
+    </div>
+  )
+
+  return (
+    <BaseCard
+      variant="stat"
+      className={cn(colors.text, "hover:border-current/40 hover:shadow-[0_0_4px]")}
+      header={CustomHeader}
+      animation={{
+        initial: { opacity: 0, y: 20 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true },
+        transition: { duration: 0.6, delay }
+      }}
+    >
       <p className="text-xs leading-snug text-brand-text/70 dark:text-brand-dark-text/70">
         {description.split('\n').map((line, i) => (
           <React.Fragment key={i}>
@@ -64,6 +69,6 @@ export default function StatCard({
           </React.Fragment>
         ))}
       </p>
-    </motion.div>
+    </BaseCard>
   )
 }

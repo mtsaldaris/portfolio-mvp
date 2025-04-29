@@ -6,6 +6,7 @@ import { Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import { motion } from 'framer-motion'
+import { SectionContainer } from '@/components/SectionContainer'
 
 const projects = [
   {
@@ -29,7 +30,7 @@ const projects = [
     duration: 'Ongoing',
     technologies: ['Java', 'Spring', 'Gradle', 'Azure', 'React.Js'],
     demoUrl: 'https://beamconnect.com.au/',
-    githubUrl: 'https://github.com/mtsaldaris'
+    githubUrl: 'https://github.com/mtsaldaris',
   },
   {
     image: '/images/beamconnect.png',
@@ -41,29 +42,23 @@ const projects = [
     duration: 'Ongoing',
     technologies: ['Java', 'Spring', 'Gradle', 'Azure', 'React.Js'],
     demoUrl: 'https://beamconnect.com.au/',
-    githubUrl: 'https://github.com/mtsaldaris'
+    githubUrl: 'https://github.com/mtsaldaris',
   },
   // Add more project objects here
 ]
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="mb-12"
-      >
-        <span className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-brand-secondary">
-        <span className="h-1.5 w-1.5 rounded-full bg-brand-secondary" />
-        Projects
-        </span>
-        <h2 className="mt-2 text-4xl font-bold leading-tight text-brand-dark dark:text-brand-light sm:text-5xl">
-          What I’ve been <span className="text-brand-primary">building</span>
-        </h2>
-      </motion.div>
+    <SectionContainer
+      id="projects"
+      label="Projects"
+      title={
+        <>
+          What I've been <span className="text-brand-primary">building</span>
+        </>
+      }
+      description="Here's some stuff I've been working on..."
+    >
       <Swiper
         modules={[Pagination]}
         pagination={{
@@ -93,6 +88,6 @@ export default function Projects() {
         ))}
       </Swiper>
       <div className="custom-pagination mt-8 flex justify-center gap-2"></div>
-    </section>
+    </SectionContainer>
   )
 }

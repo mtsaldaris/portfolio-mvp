@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Button from '../../components/Button'
 import TagBadge from '../../components/TagBadge'
-import { motion } from 'framer-motion'
+import BaseCard from '@/components/BaseCard'
 
 interface ApiCardProps {
   title: string
@@ -71,116 +71,19 @@ export default function ApiCard({
     }
   }
 
-  const renderResponse = () => {
-    if (error) {
-      return (
-        <div className="rounded bg-red-50 p-3 dark:bg-red-900/20">
-          <code className="font-mono text-sm text-red-500">{error}</code>
-        </div>
-      )
-    }
-
-    if (!response) return null
-
-    // Quote API Response
-    if (endpoint === '/api/quote') {
-      const quoteResponse = response as QuoteResponse
-      return (
-        <div className="space-y-3">
-          <div className="rounded-lg bg-gray-50 p-4 dark:bg-gray-800/50">
-            <p className="text-lg italic text-gray-900 dark:text-white">
-              &quot;{quoteResponse.data.quote}&quot;
-            </p>
-            <div className="mt-2 flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
-              <span>{quoteResponse.data.source}</span>
-              <span>{new Date(quoteResponse.data.timestamp).toLocaleTimeString()}</span>
-            </div>
-          </div>
-          <div className="text-xs text-gray-500 dark:text-gray-400">
-            API v{quoteResponse.metadata.version} • {quoteResponse.metadata.totalQuotes} quotes
-            available
-          </div>
-        </div>
-      )
-    }
-
-    // GitHub Repos Response
-    if (endpoint === '/api/github/repos') {
-      const githubResponse = response as GitHubResponse
-
-      // Handle coming soon state
-      if (githubResponse.metadata.status === 'under_development') {
-        return (
-          <div className="space-y-3">
-            <div className="rounded-lg bg-yellow-50 p-4 dark:bg-yellow-900/20">
-              <div className="flex items-center gap-2 text-yellow-800 dark:text-yellow-200">
-                <span className="text-lg">🚧</span>
-                <p className="text-sm">{githubResponse.data.message}</p>
-              </div>
-            </div>
-            <div className="text-xs text-gray-500 dark:text-gray-400">
-              Last checked: {new Date(githubResponse.metadata.timestamp).toLocaleTimeString()}
-            </div>
-          </div>
-        )
-      }
-
-      return (
-        <div className="space-y-3">
-          <div className="text-sm text-gray-500 dark:text-gray-400">
-            Found {githubResponse.metadata.total} repositories
-          </div>
-          <div className="space-y-2">
-            {githubResponse.data.repos.map((repo, index) => (
-              <div key={index} className="rounded-lg bg-gray-50 p-3 dark:bg-gray-800/50">
-                <div className="flex items-center justify-between">
-                  <a
-                    href={repo.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
-                  >
-                    {repo.name}
-                  </a>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">⭐ {repo.stars}</span>
-                </div>
-                {repo.description && (
-                  <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
-                    {repo.description}
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      )
-    }
-
-    // Default JSON response for unknown APIs
-    return (
-      <div className="rounded bg-gray-50 p-3 dark:bg-gray-800/50">
-        <code className="font-mono text-sm text-gray-900 dark:text-gray-100">
-          {typeof response === 'string' ? response : JSON.stringify(response, null, 2)}
-        </code>
-      </div>
-    )
-  }
-
   return (
-    <motion.div
-      className="rounded-lg border border-gray-300/20 bg-white/60 p-6 backdrop-blur-md transition-all hover:border-blue-500/20 dark:border-gray-700/10 dark:bg-zinc-800/50 dark:hover:border-blue-500/20"
-      whileHover={{ y: -2 }}
+    <BaseCard
+      variant="api"
+      title={title}
+      description={description}
+      animation={{
+        whileHover: { y: -2 }
+      }}
     >
       <div className="space-y-4">
-        {/* Header */}
-        <div>
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white">{title}</h3>
-          <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">{description}</p>
-        </div>
-
         {/* Endpoint */}
-        <div className="rounded bg-gray-100 p-3 dark:bg-gray-800/50">
-          <code className="font-mono text-sm text-gray-900 dark:text-gray-100">{endpoint}</code>
+        <div className="rounded-lg bg-brand-muted/10 p-3 dark:bg-brand-dark-muted/30">
+          <code className="font-mono text-sm text-brand-text dark:text-brand-dark-text">{endpoint}</code>
         </div>
 
         {/* Tags */}
@@ -202,19 +105,85 @@ export default function ApiCard({
           )}
         </Button>
 
-        {/* Response Display */}
+        {/* Response */}
         {(response || error) && (
-          <div className="mt-4">
-            <div className="mb-2 flex items-center justify-between">
-              <h4 className="text-sm font-medium text-gray-900 dark:text-white">Response</h4>
-              <span className="text-xs text-gray-500 dark:text-gray-400">
-                {new Date().toLocaleTimeString()}
-              </span>
-            </div>
-            <div className="max-h-96 overflow-y-auto">{renderResponse()}</div>
+          <div className="mt-6 space-y-4">
+            {error ? (
+              <div className="rounded-lg bg-red-500/10 p-3 dark:bg-red-500/5">
+                <code className="font-mono text-sm text-red-600 dark:text-red-400">{error}</code>
+              </div>
+            ) : (
+              <>
+                {endpoint === '/api/quote' && (
+                  <div className="space-y-3">
+                    <div className="rounded-lg bg-brand-muted/10 p-4 dark:bg-brand-dark-muted/10">
+                      <p className="text-lg italic text-brand-text dark:text-brand-dark-text">
+                        &quot;{(response as QuoteResponse).data.quote}&quot;
+                      </p>
+                      <div className="mt-2 flex items-center justify-between text-sm text-brand-muted dark:text-brand-dark-muted">
+                        <span>{(response as QuoteResponse).data.source}</span>
+                        <span>{new Date((response as QuoteResponse).data.timestamp).toLocaleTimeString()}</span>
+                      </div>
+                    </div>
+                    <div className="text-xs text-brand-muted dark:text-brand-dark-muted">
+                      API v{(response as QuoteResponse).metadata.version} •{' '}
+                      {(response as QuoteResponse).metadata.totalQuotes} quotes available
+                    </div>
+                  </div>
+                )}
+
+                {endpoint === '/api/github/repos' && (
+                  <div className="space-y-3">
+                    {(response as GitHubResponse).metadata.status === 'under_development' ? (
+                      <>
+                        <div className="rounded-lg bg-yellow-500/10 p-4 dark:bg-yellow-500/5">
+                          <div className="flex items-center gap-2 text-yellow-700 dark:text-yellow-300">
+                            <span className="text-lg">🚧</span>
+                            <p className="text-sm">{(response as GitHubResponse).data.message}</p>
+                          </div>
+                        </div>
+                        <div className="text-xs text-brand-muted dark:text-brand-dark-muted">
+                          Last checked: {new Date((response as GitHubResponse).metadata.timestamp).toLocaleTimeString()}
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="text-sm text-brand-muted dark:text-brand-dark-muted">
+                          Found {(response as GitHubResponse).metadata.total} repositories
+                        </div>
+                        <div className="space-y-2">
+                          {(response as GitHubResponse).data.repos.map((repo, index) => (
+                            <div key={index} className="rounded-lg bg-brand-muted/10 p-3 dark:bg-brand-dark-muted/10">
+                              <div className="flex items-center justify-between">
+                                <a
+                                  href={repo.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="font-medium text-brand-primary hover:text-brand-primary/80 dark:text-brand-dark-primary dark:hover:text-brand-dark-primary/80"
+                                >
+                                  {repo.name}
+                                </a>
+                                <span className="text-sm text-brand-muted dark:text-brand-dark-muted">
+                                  ⭐ {repo.stars}
+                                </span>
+                              </div>
+                              {repo.description && (
+                                <p className="mt-1 text-sm text-brand-dark dark:text-brand-light">
+                                  {repo.description}
+                                </p>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      </>
+                    )}
+                  </div>
+                )}
+              </>
+            )}
           </div>
         )}
       </div>
-    </motion.div>
+    </BaseCard>
   )
 }

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { apiList } from '@/constants/apis'
 import ApiCard from '@/sections/api-preview/ApiCard'
+import { SectionContainer } from '@/components/SectionContainer'
 
 export default function ApiPreview() {
   const [responses, setResponses] = useState<Record<string, unknown>>({})
@@ -18,8 +19,12 @@ export default function ApiPreview() {
   }
 
   return (
-    <section id="api-preview" className="py-12">
-      <h2 className="mb-6 text-3xl font-bold">API Playground Preview</h2>
+    <SectionContainer
+      id="api-preview"
+      label="API"
+      title="Playground"
+      description="Explore and interact with my collection of public APIs. Each endpoint is designed to showcase different aspects of API development and integration."
+    >
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         {apiList.map((api) => (
           <ApiCard
@@ -34,6 +39,6 @@ export default function ApiPreview() {
           />
         ))}
       </div>
-    </section>
+    </SectionContainer>
   )
 }

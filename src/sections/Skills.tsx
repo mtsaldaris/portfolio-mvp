@@ -1,7 +1,19 @@
+'use client'
+
+import { SectionContainer } from '@/components/SectionContainer'
+
 export default function Skills() {
   return (
-    <section className="py-12">
-      <h2 className="mb-6 text-3xl font-bold">Skills</h2>
+    <SectionContainer
+      id="skills"
+      label="Skills"
+      title={
+        <>
+          My <span className="text-brand-primary">Expertise</span>
+        </>
+      }
+      description="A collection of technologies and methodologies I specialize in, focusing on building scalable and maintainable solutions."
+    >
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
         <div className="rounded-lg border border-brand-muted/10 bg-brand-light/5 p-6 dark:border-brand-dark-muted/10 dark:bg-brand-dark/5">
           <h3 className="mb-3 text-lg font-bold text-brand-primary dark:text-brand-dark-primary">
@@ -28,6 +40,6 @@ export default function Skills() {
           </p>
         </div>
       </div>
-    </section>
+    </SectionContainer>
   )
 }
