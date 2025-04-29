@@ -12,10 +12,10 @@ export default function Contact() {
       label="Contact"
       title={
         <>
-          Let's <span className="text-brand-primary dark:text-brand-dark-primary">connect</span>
+          Let’s <span className="text-brand-primary dark:text-brand-dark-primary">connect</span>
         </>
       }
-      description="Im always open to discussing new projects, creative ideas, or opportunities to be part of your visions."
+      description="I’m always open to discussing new projects, creative ideas, or opportunities to be part of your visions."
     >
       <motion.div
         className="grid grid-cols-1 gap-4 sm:grid-cols-2"

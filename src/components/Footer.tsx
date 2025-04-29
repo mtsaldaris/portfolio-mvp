@@ -50,7 +50,7 @@ export default function Footer() {
               <div className="relative h-2 w-2 rounded-full bg-brand-secondary" />
             </div>
             <span>
-              Currently in {location.city}, {location.country} — let's grab a coffee ☕️
+              Currently in {location.city}, {location.country} — let’s grab a coffee ☕️
             </span>
           </div>
         )}
