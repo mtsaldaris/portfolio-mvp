@@ -21,7 +21,7 @@ export default function ApiPreview() {
   return (
     <SectionContainer
       id="api-preview"
-      label="API"
+      label="APIs"
       title="Playground"
       description="Explore and interact with my collection of public APIs. Each endpoint is designed to showcase different aspects of API development and integration."
     >

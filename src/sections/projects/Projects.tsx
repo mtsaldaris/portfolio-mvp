@@ -51,7 +51,7 @@ export default function Projects() {
   return (
     <SectionContainer
       id="projects"
-      label="Projects"
+      label="PROJECTS"
       title={
         <>
           What I’ve been <span className="text-brand-primary">building</span>

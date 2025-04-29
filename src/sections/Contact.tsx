@@ -9,7 +9,7 @@ export default function Contact() {
   return (
     <SectionContainer
       id="contact"
-      label="Contact"
+      label="CONTACT"
       title={
         <>
           Let’s <span className="text-brand-primary dark:text-brand-dark-primary">connect</span>
@@ -73,10 +73,18 @@ export default function Contact() {
         <BaseCard
           icon={MessageSquare}
           title="Quick Chat"
-          description="Currently in Bangkok — let's grab a coffee ☕️"
+          description="Pick a time to connect"
           variant="process"
           animation={{}}
-        ></BaseCard>
+        >
+          <a
+            href="https://calendly.com/mtsaldaris/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute inset-0"
+            aria-label="Pick a time to connect"
+          />
+        </BaseCard>
       </motion.div>
     </SectionContainer>
   )

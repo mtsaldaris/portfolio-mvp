@@ -40,7 +40,7 @@ export default function DevProcess() {
   return (
     <SectionContainer
       id="process"
-      label="My Process"
+      label="MY PROCESS"
       title={
         <>
           Building for <span className="text-brand-primary">scale</span>

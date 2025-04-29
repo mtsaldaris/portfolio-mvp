@@ -35,7 +35,7 @@ export function SectionContainer({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-wider text-brand-secondary"
+          className="inline-flex items-center gap-2 text-sm font-medium tracking-wider text-brand-secondary"
         >
           <span className="h-1.5 w-1.5 rounded-full bg-brand-secondary" />
           {label}
