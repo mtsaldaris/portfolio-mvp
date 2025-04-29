@@ -1,6 +1,7 @@
 import { cn } from '@/lib/utils'
 import { motion } from 'framer-motion'
 import { LucideIcon } from 'lucide-react'
+import TagBadge from '@/components/TagBadge'
 
 interface ProcessCardProps {
   icon: LucideIcon
@@ -35,9 +36,9 @@ export default function ProcessCard({
       {/* Card Content */}
       <div
         className={cn(
-          'group relative rounded-2xl border border-gray-300 bg-white/80 p-6 backdrop-blur-sm transition-all duration-300',
-          'hover:border-brand-primary/20 hover:border-brand-primary/40 hover:bg-white/90 hover:shadow-[0_0_5px] hover:shadow-brand-primary',
-          'dark:border-gray-600/40 dark:bg-[#1a1a1a]/50 dark:hover:border-brand-primary/20 dark:hover:bg-[#1a1a1a]/70'
+          'group relative rounded-2xl border border-brand-muted bg-white/80 p-6 backdrop-blur-sm transition-all duration-300',
+          'hover:border-brand-primary/40 hover:bg-white/90 hover:shadow-[0_0_5px] hover:shadow-brand-primary',
+          'dark:border-brand-dark-muted/40 dark:bg-brand-dark/50 dark:hover:border-brand-primary/20 dark:hover:bg-brand-dark/70'
         )}
       >
         <div className="flex flex-col text-left">
@@ -75,22 +76,10 @@ export default function ProcessCard({
           {/* Tags */}
           <div className="flex flex-wrap gap-2">
             {tags.map((tag) => (
-              <motion.span
-                key={tag}
-                className={cn(
-                  'rounded-lg px-2.5 py-1 text-xs font-medium tracking-wide',
-                  'border border-brand-secondary/10 bg-brand-secondary/5 text-brand-secondary',
-                  'transition-all duration-300 hover:border-brand-secondary/20 hover:bg-brand-secondary/10',
-                  'dark:border-brand-secondary/20 dark:bg-brand-secondary/10 dark:hover:border-brand-secondary/30 dark:hover:bg-brand-secondary/20'
-                )}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                {tag}
-              </motion.span>
+              <TagBadge key={tag} tag={tag} />
             ))}
           </div>
-        </div>        
+        </div>
       </div>
     </motion.div>
   )

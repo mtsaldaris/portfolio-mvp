@@ -149,9 +149,11 @@ code {
   0% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-10px);
   }
+
   100% {
     transform: translateY(0px);
   }
@@ -162,10 +164,12 @@ code {
 }
 
 @keyframes blink {
+
   0%,
   100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
@@ -257,6 +261,7 @@ section.hero {
     opacity: 0;
     transform: translateY(12px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -298,4 +303,13 @@ section {
 /* Active section highlight */
 section:target {
   @apply bg-white/5 dark:bg-gray-800/5;
+}
+
+/* Swiper pagination bullets */
+.swiper-pagination-bullet {
+  @apply bg-brand-primary opacity-30 transition-opacity duration-200;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-brand-primary opacity-100;
 }

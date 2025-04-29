@@ -46,7 +46,7 @@ export default function DevProcess() {
   return (
     <section
       ref={containerRef}
-      className="relative mx-auto w-full max-w-6xl px-4 pt-8 pb-0 sm:px-6 lg:px-8"
+      className="relative mx-auto w-full max-w-6xl px-4 pt-8 pb-2 sm:px-6 lg:px-8"
     >
       {/* Mobile Scroll Progress Bar */}
       <motion.div
@@ -74,7 +74,7 @@ export default function DevProcess() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 text-sm font-medium text-brand-secondary"
+            className="inline-flex items-center gap-2 text-sm uppercase font-medium text-brand-secondary"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-brand-secondary" />
             My Process

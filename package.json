@@ -20,6 +20,7 @@
     "react-leaflet": "^5.0.0",
     "react-simple-typewriter": "^5.0.1",
     "react-terminal": "^1.4.5",
+    "swiper": "^11.2.6",
     "tailwind-merge": "^3.2.0"
   },
   "devDependencies": {

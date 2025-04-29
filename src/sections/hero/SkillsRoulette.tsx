@@ -79,7 +79,7 @@ export default function SkillsRoulette() {
               className="flex min-w-[120px] cursor-pointer items-center gap-2 rounded-lg border border-gray-300 bg-white/80 px-3 py-1.5 shadow-sm transition-all duration-200 ease-in-out hover:border-brand-secondary/40 hover:bg-white hover:shadow-[0_0_5px_rgba(44,182,125,0.25)] hover:shadow-md dark:border-brand-dark-muted/30 dark:bg-brand-dark/40 dark:hover:border-brand-secondary/40 dark:hover:bg-brand-dark/60 dark:hover:shadow-[0_0_5px_rgba(44,182,125,0.25)] dark:hover:shadow-md"
             >
               {React.createElement(skill.icon, {
-                className: 'w-5 h-5 text-brand-secondary dark:text-brand-dark-secondary',
+                className: 'w-4 h-4 text-brand-secondary dark:text-brand-dark-secondary',
               })}
               <span className="whitespace-nowrap text-sm text-brand-text-muted dark:text-brand-dark-text/80">
                 {skill.name}

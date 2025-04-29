@@ -12,19 +12,19 @@ const stats = [
     title: 'Product Minded',
     // description: 'Engineering solutions with purpose. I focus on user value, business impact, and long-term scalability.',
     description: 'Building systems that scale with your business. I bridge technical excellence with real-world impact.',
-    variant: 'blue',
+    variant: 'variantA',
   },
   {
     icon: Code2,
     title: 'API First',
     description: 'Crafting developer-centric APIs that power modern B2B platforms. Your backend is your product.',
-    variant: 'teal',
+    variant: 'variantB',
   },
   {
     icon: GitBranch,
     title: 'Perpetual Learner',
     description: 'Always building, always evolving. Each system teaches new patterns, every challenge refines the craft.',
-    variant: 'purple',
+    variant: 'variantC',
   },
 ] as const
 
@@ -58,7 +58,7 @@ export default function Hero() {
               className="absolute inset-0 rounded-full"
               style={{
                 background:
-                  'radial-gradient(circle, rgba(59,130,246,0.2) 0%, rgba(139,92,246,0.2) 50%, rgba(236,72,153,0.2) 100%)',
+                  'radial-gradient(circle, rgba(56,189,248,0.15) 0%, rgba(14,165,233,0.15) 50%, rgba(100,116,139,0.1) 100%)',
                 filter: 'blur(30px)',
               }}
               animate={{
@@ -73,7 +73,7 @@ export default function Hero() {
             />
 
             {/* Portrait container */}
-            <div className="absolute inset-0 overflow-hidden rounded-full border border-[#333333]/10 bg-[#1a1a1a]/20 dark:border-[#333333]/30 dark:bg-[#1a1a1a]/50">
+            <div className="absolute inset-0 overflow-hidden rounded-full border border-brand-muted/10 bg-brand-dark/20 dark:border-brand-muted/30 dark:bg-brand-dark/50">
               <Image
                 src="/images/myron-avatar.png"
                 alt="Myron's portrait"

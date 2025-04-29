@@ -186,7 +186,7 @@ export default function ApiCard({
         {/* Tags */}
         <div className="flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <TagBadge key={tag} label={tag} />
+            <TagBadge key={tag} tag={tag} />
           ))}
         </div>
 
