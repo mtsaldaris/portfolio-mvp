@@ -9,7 +9,6 @@ interface ProjectCardProps {
   image: string
   title: string
   description: string
-  client: string
   duration: string
   technologies: string[]
   demoUrl?: string
@@ -21,8 +20,6 @@ export default function ProjectCard({
   image,
   title,
   description,
-  client,
-  duration,
   technologies,
   demoUrl,
   githubUrl,
