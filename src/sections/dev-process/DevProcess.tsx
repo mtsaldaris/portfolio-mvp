@@ -49,7 +49,7 @@ export default function DevProcess() {
       description="A systematic approach to building scalable solutions, focusing on quality and precision in every line of code."
       showDivider={false}
     >
-      <div className="relative pl-8 md:pl-8">
+      <div className="relative sm:pl-2 md:pl-8">
         {/* Progress Line - Desktop */}
         <div className="absolute left-0 top-0 hidden h-full w-[2px] bg-gradient-to-b from-transparent via-brand-primary/50 to-transparent md:block">
           <motion.div
@@ -63,7 +63,7 @@ export default function DevProcess() {
           {steps.map((step, index) => (
             <div
               key={step.title}
-              className="grid grid-cols-[auto,1fr] items-center gap-x-8 md:pl-4"
+              className="grid grid-cols-[auto,1fr] items-center md:gap-x-8 md:pl-4"
             >
               {/* Timeline Indicator */}
               <div className="hidden justify-center md:flex">
