@@ -66,7 +66,7 @@ export default function DevProcess() {
               className="grid grid-cols-[auto,1fr] items-center gap-x-8 md:pl-4"
             >
               {/* Timeline Indicator */}
-              <div className="flex justify-center">
+              <div className="hidden justify-center md:flex">
                 <div className="relative flex h-6 w-6 items-center justify-center">
                   <div className="absolute h-full w-full rounded-full border-2 border-brand-primary bg-white shadow-sm dark:bg-brand-dark" />
                   <motion.div
