@@ -44,7 +44,7 @@ export default function Footer() {
 
         {/* Location */}
         {location && (
-          <div className="flex items-center justify-center space-x-2 text-sm text-brand-muted dark:text-brand-dark-muted">
+          <div className="flex items-center justify-center space-x-2 text-xs text-brand-muted dark:text-brand-dark-muted">
             <div className="relative">
               <div className="absolute h-2 w-2 animate-ping rounded-full bg-brand-secondary" />
               <div className="relative h-2 w-2 rounded-full bg-brand-secondary" />

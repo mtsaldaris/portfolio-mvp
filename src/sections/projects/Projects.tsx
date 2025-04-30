@@ -71,6 +71,8 @@ export default function Projects() {
         breakpoints={{
           640: { slidesPerView: 1 },
           1024: { slidesPerView: 2 },
+          1536: { slidesPerView: 3 },
+          1920: { slidesPerView: 4 },
         }}
         className="w-full text-brand-secondary"
       >

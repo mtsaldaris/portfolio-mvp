@@ -9,7 +9,7 @@ interface BaseCardProps {
   icon?: LucideIcon
   title?: ReactNode
   description?: ReactNode
-  variant?: 'default' | 'process' | 'stat' | 'api'
+  variant?: 'default' | 'process' | 'stat' | 'api' | 'compact'
   animation?: {
     initial?: TargetAndTransition | VariantLabels
     whileInView?: TargetAndTransition | VariantLabels
@@ -33,22 +33,26 @@ export default function BaseCard({
   footer,
 }: BaseCardProps) {
   const cardStyles = {
-    default: 'rounded-2xl border border-brand-muted bg-white/80 p-6 backdrop-blur-sm transition-all duration-300 dark:border-brand-dark-muted/40 dark:bg-brand-dark/50',
-    process: 'rounded-2xl border border-brand-muted bg-white/80 p-6 backdrop-blur-sm transition-all duration-300 hover:border-brand-primary/40 hover:bg-white/90 hover:shadow-[0_0_5px] hover:shadow-brand-primary dark:border-brand-dark-muted/40 dark:bg-brand-dark/50 dark:hover:border-brand-primary/20 dark:hover:bg-brand-dark/70',
+    default:
+      'rounded-2xl border border-brand-muted bg-white/80 p-6 backdrop-blur-sm transition-all duration-300 dark:border-brand-dark-muted/40 dark:bg-brand-dark/50',
+    process:
+      'rounded-2xl border border-brand-muted bg-white/80 p-6 backdrop-blur-sm transition-all duration-300 hover:border-brand-primary/40 hover:bg-white/90 hover:shadow-[0_0_5px] hover:shadow-brand-primary dark:border-brand-dark-muted/40 dark:bg-brand-dark/50 dark:hover:border-brand-primary/20 dark:hover:bg-brand-dark/70',
     stat: 'rounded-xl bg-white/10 p-3 backdrop-blur-sm transition-all duration-300 hover:bg-white/20 dark:bg-brand-dark/50 dark:hover:bg-brand-dark/70 border border-brand-muted/40 dark:border-brand-dark-muted/40',
-    api: 'rounded-2xl border border-brand-muted/40 bg-white/80 p-6 backdrop-blur-sm transition-all duration-300 hover:border-brand-primary/40 hover:bg-white/90 dark:border-brand-dark-muted/40 dark:bg-brand-dark/50 dark:hover:border-brand-primary/20 dark:hover:bg-brand-dark/70'
+    api: 'rounded-2xl border border-brand-muted/40 bg-white/80 p-6 backdrop-blur-sm transition-all duration-300 hover:border-brand-primary/40 hover:bg-white/90 dark:border-brand-dark-muted/40 dark:bg-brand-dark/50 dark:hover:border-brand-primary/20 dark:hover:bg-brand-dark/70',
+    compact:
+      'rounded-xl border border-brand-muted bg-white/80 p-4 text-sm backdrop-blur-sm transition-all duration-300 dark:border-brand-dark-muted/40 dark:bg-brand-dark/50 hover:shadow-md hover:shadow-brand-primary/20 transition-all duration-200 ease-out',
   }
 
   const defaultAnimation = {
     initial: { opacity: 0, y: 20 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true },
-    transition: { duration: 0.5 }
+    transition: { duration: 0.5 },
   }
 
   const cardAnimation = {
     ...defaultAnimation,
-    ...animation
+    ...animation,
   }
 
   return (
@@ -80,7 +84,10 @@ export default function BaseCard({
                 )}
                 {title && (
                   <motion.h3
-                    className="text-2xl font-bold text-gray-800 transition-colors dark:text-white"
+                    className={cn(
+                      'text-2xl font-bold text-gray-800 transition-colors dark:text-white',
+                      variant === 'compact' && 'text-lg md:text-base'
+                    )}
                     initial={{ opacity: 0.8 }}
                     whileHover={{ opacity: 1 }}
                   >
@@ -93,7 +100,13 @@ export default function BaseCard({
         ) : null}
 
         {description && (
-          <div className="mb-4 text-gray-600/90 transition-colors dark:text-brand-muted">
+          <div
+            className={cn(
+              'mb-4 text-gray-600/90 transition-colors dark:text-brand-muted',
+              variant === 'compact' ? 'text-xs md:text-xs' : 'text-sm md:text-base'
+            )}
+          >
+            {' '}
             {description}
           </div>
         )}
@@ -104,4 +117,4 @@ export default function BaseCard({
       </div>
     </motion.div>
   )
-} 
+}

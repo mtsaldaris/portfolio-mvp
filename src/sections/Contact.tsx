@@ -12,13 +12,13 @@ export default function Contact() {
       label="CONTACT"
       title={
         <>
-          Let’s <span className="text-brand-primary dark:text-brand-dark-primary">connect</span>
+          Let's <span className="text-brand-primary dark:text-brand-dark-primary">connect</span>
         </>
       }
-      description="I’m always open to discussing new projects, creative ideas, or opportunities to be part of your visions."
+      description="I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions."
     >
       <motion.div
-        className="grid grid-cols-1 gap-4 sm:grid-cols-2"
+        className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -28,7 +28,7 @@ export default function Contact() {
           icon={Mail}
           title="Email Me"
           description="Direct message for inquiries"
-          variant="process"
+          variant="compact"
           animation={{}}
         >
           <a
@@ -42,14 +42,13 @@ export default function Contact() {
           icon={Linkedin}
           title="LinkedIn"
           description="Let's connect professionally"
-          variant="process"
+          variant="compact"
           animation={{}}
         >
           <a
             href="https://linkedin.com/in/mtsaldaris"
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute inset-0"
             aria-label="LinkedIn Profile"
           />
         </BaseCard>
@@ -58,14 +57,13 @@ export default function Contact() {
           icon={Github}
           title="GitHub"
           description="Check out my code"
-          variant="process"
+          variant="compact"
           animation={{}}
         >
           <a
             href="https://github.com/mtsaldaris"
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute inset-0"
             aria-label="GitHub Profile"
           />
         </BaseCard>
@@ -74,14 +72,13 @@ export default function Contact() {
           icon={MessageSquare}
           title="Quick Chat"
           description="Pick a time to connect"
-          variant="process"
+          variant="compact"
           animation={{}}
         >
           <a
             href="https://calendly.com/mtsaldaris/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute inset-0"
             aria-label="Pick a time to connect"
           />
         </BaseCard>

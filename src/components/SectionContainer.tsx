@@ -1,3 +1,5 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import { ReactNode } from 'react'
 
@@ -29,7 +31,7 @@ export function SectionContainer({
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-primary/20 to-transparent dark:via-brand-dark-primary/20" />
       )}
 
-      <div className="mx-auto max-w-6xl px-4 py-24">
+      <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
         <motion.span
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

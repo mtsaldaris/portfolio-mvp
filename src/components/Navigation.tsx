@@ -256,7 +256,7 @@ export default function Navigation() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
           onClick={scrollToTop}
-          className="fixed bottom-4 right-4 z-50 rounded-full bg-brand-primary/10 p-3 text-brand-primary transition-colors hover:bg-brand-primary/20 dark:bg-brand-dark-primary/10 dark:text-brand-dark-primary dark:hover:bg-brand-dark-primary/20"
+          className="fixed bottom-4 md:bottom-24 right-4 z-50 rounded-full bg-brand-primary/10 p-3 text-brand-primary transition-colors hover:bg-brand-primary/20 dark:bg-brand-dark-primary/10 dark:text-brand-dark-primary dark:hover:bg-brand-dark-primary/20"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
