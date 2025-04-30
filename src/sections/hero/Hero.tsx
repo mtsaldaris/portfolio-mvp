@@ -98,7 +98,7 @@ export default function Hero() {
         >
           <div className="space-y-4 md:space-y-6">
             <h1 className="text-center text-3xl font-bold text-brand-text dark:text-brand-dark-text md:text-left md:text-5xl">
-              Hey, I'm{' '}
+              Hey, I’m{' '}
               <span className="text-brand-primary dark:text-brand-dark-primary">Myron</span>
             </h1>
             <h2 className="text-center text-xl font-semibold text-brand-muted dark:text-brand-dark-muted md:text-left md:text-3xl">
