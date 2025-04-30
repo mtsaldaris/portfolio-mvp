@@ -1,7 +1,7 @@
 import React from 'react'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 
-const STAR_COUNT = 200
+const STAR_COUNT = 100
 const STAR_MIN_SIZE = 0.5
 const STAR_MAX_SIZE = 2.5
 const STAR_COLORS = [
@@ -17,8 +17,6 @@ const DIM_PATTERNS = [
   [0.4, 1, 0.4], // Standard dim
   [0.5, 1, 0.5], // Less dim
   [0.3, 1, 0.3], // More dim
-  [0.4, 1, 0.4, 1, 0.4], // Double pulse
-  [0.5, 1, 0.5, 1, 0.5], // Double pulse less dim
 ]
 
 // Gaussian distribution for more natural star placement
@@ -30,29 +28,31 @@ function gaussianRandom(mean: number, stdDev: number) {
   return num * stdDev + mean
 }
 
-const stars = Array.from({ length: STAR_COUNT }).map((_, i) => {
-  // Use gaussian distribution for more natural star placement
-  const top = gaussianRandom(50, 30) // Center around 50% with spread
-  const left = gaussianRandom(50, 30)
-  const size = Math.random() * (STAR_MAX_SIZE - STAR_MIN_SIZE) + STAR_MIN_SIZE
-  const color = STAR_COLORS[Math.floor(Math.random() * STAR_COLORS.length)]
-  const duration = Math.random() * 4 + 3 // Random duration between 3-7s
-  const delay = Math.random() * 4 // Random delay between 0-4s
-  const dimPattern = DIM_PATTERNS[Math.floor(Math.random() * DIM_PATTERNS.length)]
-  
-  return { 
-    top, 
-    left, 
-    size, 
-    color,
-    duration,
-    delay,
-    dimPattern,
-    key: i 
-  }
-})
-
 export default function StarsBackground() {
+  const shouldReduceMotion = useReducedMotion()
+  
+  const stars = React.useMemo(() => 
+    Array.from({ length: STAR_COUNT }).map((_, i) => {
+      const top = gaussianRandom(50, 30)
+      const left = gaussianRandom(50, 30)
+      const size = Math.random() * (STAR_MAX_SIZE - STAR_MIN_SIZE) + STAR_MIN_SIZE
+      const color = STAR_COLORS[Math.floor(Math.random() * STAR_COLORS.length)]
+      const duration = Math.random() * 4 + 3
+      const delay = Math.random() * 4
+      const dimPattern = DIM_PATTERNS[Math.floor(Math.random() * DIM_PATTERNS.length)]
+      
+      return { 
+        top, 
+        left, 
+        size, 
+        color,
+        duration,
+        delay,
+        dimPattern,
+        key: i 
+      }
+    }), [])
+
   return (
     <div className="pointer-events-none absolute inset-0 z-0 hidden dark:block">
       {stars.map(star => (
@@ -68,11 +68,11 @@ export default function StarsBackground() {
             background: star.color,
             boxShadow: `0 0 ${star.size * 2}px ${star.size}px ${star.color.replace(')', ', 0.2)')}`,
           }}
-          animate={{
+          animate={shouldReduceMotion ? {} : {
             opacity: star.dimPattern,
             scale: [0.9, 1.1, 0.9],
           }}
-          transition={{
+          transition={shouldReduceMotion ? {} : {
             duration: star.duration,
             repeat: Infinity,
             repeatType: "reverse",
