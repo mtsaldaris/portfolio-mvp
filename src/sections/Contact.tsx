@@ -16,7 +16,7 @@ const contactCards = [
   {
     icon: Linkedin,
     title: "LinkedIn",
-    description: "Let's connect professionally",
+    description: "Let’s connect professionally",
     href: "https://linkedin.com/in/mtsaldaris",
     ariaLabel: "LinkedIn Profile"
   },
