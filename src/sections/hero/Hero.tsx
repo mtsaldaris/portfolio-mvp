@@ -5,6 +5,7 @@ import { Code2, Rocket, GitBranch } from 'lucide-react'
 import Image from 'next/image'
 import SkillsRoulette from './SkillsRoulette'
 import StatCard from './StatCard'
+import StarsBackground from './StarsBackground'
 
 const stats = [
   {
@@ -34,6 +35,8 @@ export default function Hero() {
       id="hero"
       className="relative flex items-center justify-center overflow-hidden px-6 py-12 md:py-24 lg:px-12"
     >
+      {/* Static stars for dark mode */}
+      <StarsBackground />
       {/* Animated background lights */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -left-1/2 -top-1/2 h-full w-full animate-pulse rounded-full bg-gradient-to-r from-brand-primary/20 to-brand-secondary/20 blur-3xl dark:from-brand-dark-primary/20 dark:to-brand-dark-secondary/20" />
@@ -95,7 +98,7 @@ export default function Hero() {
         >
           <div className="space-y-4 md:space-y-6">
             <h1 className="text-center text-3xl font-bold text-brand-text dark:text-brand-dark-text md:text-left md:text-5xl">
-              Hey, I’m{' '}
+              Hey, I'm{' '}
               <span className="text-brand-primary dark:text-brand-dark-primary">Myron</span>
             </h1>
             <h2 className="text-center text-xl font-semibold text-brand-muted dark:text-brand-dark-muted md:text-left md:text-3xl">
