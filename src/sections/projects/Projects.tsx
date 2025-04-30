@@ -54,7 +54,7 @@ export default function Projects() {
       label="PROJECTS"
       title={
         <>
-          What I’ve been <span className="text-brand-primary">building</span>
+          What I've been <span className="text-brand-primary">building</span>
         </>
       }
       description="Here's some stuff I've been working on..."
@@ -67,17 +67,17 @@ export default function Projects() {
           bulletClass: 'swiper-pagination-bullet',
           bulletActiveClass: 'swiper-pagination-bullet-active',
         }}
-        spaceBetween={32}
+        spaceBetween={16}
         breakpoints={{
-          640: { slidesPerView: 1 },
-          1024: { slidesPerView: 2 },
-          1536: { slidesPerView: 3 },
-          1920: { slidesPerView: 4 },
+          0: { slidesPerView: 1, spaceBetween: 16 },
+          640: { slidesPerView: 1, spaceBetween: 20 },
+          768: { slidesPerView: 2, spaceBetween: 24 },
+          1280: { slidesPerView: 3, spaceBetween: 32 },
         }}
-        className="w-full text-brand-secondary"
+        className="w-full !pb-12 text-brand-secondary"
       >
         {projects.map((project, idx) => (
-          <SwiperSlide key={project.title + idx}>
+          <SwiperSlide key={project.title + idx} className="h-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -89,7 +89,7 @@ export default function Projects() {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="custom-pagination mt-8 flex justify-center gap-2"></div>
+      <div className="custom-pagination mt-4 flex justify-center gap-2"></div>
     </SectionContainer>
   )
 }
