@@ -54,10 +54,10 @@ export default function Projects() {
       label="PROJECTS"
       title={
         <>
-          What I've been <span className="text-brand-primary">building</span>
+          What I’ve been <span className="text-brand-primary">building</span>
         </>
       }
-      description="Here's some stuff I've been working on..."
+      description="Here’s some stuff I've been working on..."
     >
       <Swiper
         modules={[Pagination]}
