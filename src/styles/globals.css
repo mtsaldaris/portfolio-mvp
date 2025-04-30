@@ -303,9 +303,9 @@ section:target {
 
 /* Swiper pagination bullets */
 .swiper-pagination-bullet {
-  @apply bg-brand-primary opacity-30 transition-opacity duration-200;
+  @apply mx-1 h-2.5 w-2.5 cursor-pointer rounded-full bg-gray-300 transition-all duration-300 dark:bg-gray-700;
 }
 
 .swiper-pagination-bullet-active {
-  @apply bg-brand-primary opacity-100;
+  @apply bg-brand-primary dark:bg-brand-dark-primary;
 }

@@ -3,8 +3,8 @@
 import ProjectCard from '@/sections/projects/ProjectCard'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination } from 'swiper/modules'
-import 'swiper/css'
-import 'swiper/css/pagination'
+// Import Swiper styles
+import 'swiper/css/bundle'
 import { motion } from 'framer-motion'
 import { SectionContainer } from '@/components/SectionContainer'
 
@@ -54,7 +54,7 @@ export default function Projects() {
       label="PROJECTS"
       title={
         <>
-          What I’ve been <span className="text-brand-primary">building</span>
+          What I've been <span className="text-brand-primary">building</span>
         </>
       }
       description="Here's some stuff I've been working on..."

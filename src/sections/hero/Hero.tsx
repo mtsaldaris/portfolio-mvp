@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import {Code2, Rocket, GitBranch } from 'lucide-react'
+import { Code2, Rocket, GitBranch } from 'lucide-react'
 import Image from 'next/image'
 import SkillsRoulette from './SkillsRoulette'
 import StatCard from './StatCard'
@@ -11,20 +11,20 @@ const stats = [
     icon: Rocket,
     title: 'Product Minded',
     // description: 'Engineering solutions with purpose. I focus on user value, business impact, and long-term scalability.',
-    description: 'Building systems that scale with your business. I bridge technical excellence with real-world impact.',
-    variant: 'variantA',
+    description:
+      'Building systems that scale with your business. I bridge technical excellence with real-world impact.',
   },
   {
     icon: Code2,
     title: 'API First',
-    description: 'Crafting developer-centric APIs that power modern B2B platforms. Your backend is your product.',
-    variant: 'variantB',
+    description:
+      'Crafting developer-centric APIs that power modern B2B platforms. Your backend is your product.',
   },
   {
     icon: GitBranch,
     title: 'Perpetual Learner',
-    description: 'Always building, always evolving. Each system teaches new patterns, every challenge refines the craft.',
-    variant: 'variantC',
+    description:
+      'Always building, always evolving. Each system teaches new patterns, every challenge refines the craft.',
   },
 ] as const
 
@@ -32,7 +32,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex items-center justify-center overflow-hidden px-6 py-20 md:py-28 lg:px-12"
+      className="relative flex items-center justify-center overflow-hidden px-6 py-12 md:py-24 lg:px-12"
     >
       {/* Animated background lights */}
       <div className="absolute inset-0 overflow-hidden">
@@ -104,7 +104,19 @@ export default function Hero() {
               <span className="text-brand-primary dark:text-brand-dark-primary">{' }'}</span>
             </h2>
             <p className="mx-auto max-w-lg text-center text-base text-brand-muted dark:text-brand-dark-muted md:mx-0 md:text-left md:text-lg">
-              Building enterprise B2B platforms that serve millions, using <span className="text-brand-secondary dark:text-brand-dark-secondary">cutting-edge tech</span> and modern architectures. Passionate about crafting <span className="text-brand-secondary dark:text-brand-dark-secondary">clean APIs</span> and <span className="text-brand-secondary dark:text-brand-dark-secondary">scalable systems</span> that empower developers and drive business value.
+              Building enterprise B2B platforms that serve millions, using{' '}
+              <span className="text-brand-secondary dark:text-brand-dark-secondary">
+                cutting-edge tech
+              </span>{' '}
+              and modern architectures. Passionate about crafting{' '}
+              <span className="text-brand-secondary dark:text-brand-dark-secondary">
+                clean APIs
+              </span>{' '}
+              and{' '}
+              <span className="text-brand-secondary dark:text-brand-dark-secondary">
+                scalable systems
+              </span>{' '}
+              that empower developers and drive business value.
             </p>
           </div>
 
@@ -114,14 +126,13 @@ export default function Hero() {
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 pb-8 md:pb-4 sm:grid-cols-2 md:grid-cols-3">
             {stats.map((stat, index) => (
               <StatCard
                 key={stat.title}
                 icon={stat.icon}
                 title={stat.title}
                 description={stat.description}
-                variant={stat.variant}
                 delay={0.2 + index * 0.1}
               />
             ))}
@@ -134,7 +145,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.2 }}
-        className="absolute inset-x-0 bottom-0 flex items-center justify-center pb-8 md:pb-12"
+        className="absolute inset-x-0 bottom-0 flex items-center justify-center md:pb-4"
       >
         <div className="flex flex-col items-center">
           <p className="mb-1 text-sm text-brand-muted dark:text-brand-dark-muted">

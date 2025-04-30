@@ -34,13 +34,13 @@ export default function BaseCard({
 }: BaseCardProps) {
   const cardStyles = {
     default:
-      'rounded-2xl border border-brand-muted bg-white/80 p-6 backdrop-blur-sm transition-all duration-300 dark:border-brand-dark-muted/40 dark:bg-brand-dark/50',
+      'rounded-2xl border border-brand-muted bg-[#fdf7e3] hover:bg-[#fefae9] dark:bg-brand-dark/50 p-6 backdrop-blur-sm transition-all duration-300 dark:border-brand-dark-muted/40',
     process:
-      'rounded-2xl border border-brand-muted bg-white/80 p-6 backdrop-blur-sm transition-all duration-300 hover:border-brand-primary/40 hover:bg-white/90 hover:shadow-[0_0_5px] hover:shadow-brand-primary dark:border-brand-dark-muted/40 dark:bg-brand-dark/50 dark:hover:border-brand-primary/20 dark:hover:bg-brand-dark/70',
-    stat: 'rounded-xl bg-white/10 p-3 backdrop-blur-sm transition-all duration-300 hover:bg-white/20 dark:bg-brand-dark/50 dark:hover:bg-brand-dark/70 border border-brand-muted/40 dark:border-brand-dark-muted/40',
-    api: 'rounded-2xl border border-brand-muted/40 bg-white/80 p-6 backdrop-blur-sm transition-all duration-300 hover:border-brand-primary/40 hover:bg-white/90 dark:border-brand-dark-muted/40 dark:bg-brand-dark/50 dark:hover:border-brand-primary/20 dark:hover:bg-brand-dark/70',
+      'rounded-2xl border border-brand-muted bg-[#fdf7e3] hover:bg-[#fefae9] dark:bg-brand-dark/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-brand-primary/40 hover:shadow-[0_0_5px] hover:shadow-brand-primary dark:border-brand-dark-muted/40 dark:hover:border-brand-primary/20 dark:hover:bg-brand-dark/70',
+    stat: 'rounded-xl border border-brand-primary/40 dark:border-brand-dark-muted/40 bg-[#fdf7e3] dark:bg-brand-dark/60 p-4 md:p-3 md:min-h-[150px] backdrop-blur-sm transition-all duration-300 shadow-lg hover:shadow-xl hover:bg-[#fefae9] dark:hover:bg-brand-dark/70',
+    api: 'rounded-2xl border border-brand-muted/40 bg-[#fdf7e3] p-6 backdrop-blur-sm transition-all duration-300 hover:border-brand-primary/40 hover:bg-[#fefae9] dark:border-brand-dark-muted/40 dark:bg-brand-dark/50 dark:hover:border-brand-primary/20 dark:hover:bg-brand-dark/70',
     compact:
-      'rounded-xl border border-brand-muted bg-white/80 p-4 text-sm backdrop-blur-sm transition-all duration-300 dark:border-brand-dark-muted/40 dark:bg-brand-dark/50 hover:shadow-md hover:shadow-brand-primary/20 transition-all duration-200 ease-out',
+      'rounded-xl border border-brand-muted bg-[#fdf7e3] p-4 text-sm backdrop-blur-sm transition-all duration-300 dark:border-brand-dark-muted/40 dark:bg-brand-dark/50 hover:bg-[#fefae9] hover:shadow-md hover:shadow-brand-primary/10 hover:border-brand-primary/20 hover:-translate-y-0.5 dark:hover:border-brand-primary/20 dark:hover:bg-brand-dark/70',
   }
 
   const defaultAnimation = {
@@ -103,7 +103,7 @@ export default function BaseCard({
           <div
             className={cn(
               'mb-4 text-gray-600/90 transition-colors dark:text-brand-muted',
-              variant === 'compact' ? 'text-xs md:text-xs' : 'text-sm md:text-base'
+              variant === 'compact' ? 'text-base md:text-sm' : 'text-sm md:text-base'
             )}
           >
             {' '}
