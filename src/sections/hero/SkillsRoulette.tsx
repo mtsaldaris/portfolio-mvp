@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { FaJava, FaMicrosoft } from 'react-icons/fa'
 import {
   SiAmazon,
@@ -20,7 +20,7 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from 'react-icons/si'
-import React from 'react'
+import React, { useMemo } from 'react'
 
 const skills = [
   { icon: FaJava, name: 'Java' },
@@ -45,9 +45,10 @@ const skills = [
   { icon: SiAtlassian, name: 'Atlassian' },
 ]
 
-const extendedSkills = [...skills, ...skills]
-
 export default function SkillsRoulette() {
+  const shouldReduceMotion = useReducedMotion()
+  const extendedSkills = useMemo(() => [...skills, ...skills], [])
+
   return (
     <div className="w-full select-none overflow-hidden py-1">
       <div className="relative">
@@ -55,11 +56,11 @@ export default function SkillsRoulette() {
         <motion.div
           className="flex space-x-4"
           animate={{
-            x: [`0%`, `-${100 / 2}%`],
+            x: shouldReduceMotion ? '0%' : [`0%`, `-${100 / 2}%`],
           }}
           transition={{
             x: {
-              duration: 60,
+              duration: shouldReduceMotion ? 0 : 60,
               repeat: Infinity,
               ease: 'linear',
               repeatType: 'loop',
@@ -73,8 +74,8 @@ export default function SkillsRoulette() {
           {extendedSkills.map((skill, index) => (
             <motion.div
               key={`${skill.name}-${index}`}
-              whileTap={{ scale: 0.95 }}
-              className="flex min-w-[120px] cursor-pointer items-center gap-2 rounded-lg border border-gray-300 bg-brand-light/80 px-3 py-1.5 shadow-sm transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:scale-105 hover:border-brand-secondary/40 hover:bg-brand-light/30 dark:border-brand-dark-muted/30 dark:bg-brand-dark/40 dark:hover:border-brand-secondary/40 dark:hover:bg-brand-dark/60"
+              whileTap={{ scale: shouldReduceMotion ? 1 : 0.95 }}
+              className="flex min-w-[120px] cursor-pointer items-center gap-2 rounded-lg border border-gray-300 bg-brand-light/80 px-3 py-1.5 shadow-sm transition-colors duration-200 ease-in-out hover:border-brand-secondary/40 hover:bg-brand-light/30 dark:border-brand-dark-muted/30 dark:bg-brand-dark/40 dark:hover:border-brand-secondary/40 dark:hover:bg-brand-dark/60"
             >
               {React.createElement(skill.icon, {
                 className: 'w-4 h-4 text-brand-secondary dark:text-brand-dark-secondary',

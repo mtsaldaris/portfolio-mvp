@@ -1,37 +1,83 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
-const STAR_COUNT = 60
-const STAR_MIN_SIZE = 1
+const STAR_COUNT = 200
+const STAR_MIN_SIZE = 0.5
 const STAR_MAX_SIZE = 2.5
+const STAR_COLORS = [
+  'rgba(255, 255, 255, 0.8)', // White
+  'rgba(255, 255, 255, 0.6)', // Dim white
+  'rgba(255, 255, 255, 0.4)', // Very dim white
+  'rgba(255, 200, 200, 0.7)', // Red tint
+  'rgba(200, 200, 255, 0.7)', // Blue tint
+]
 
-function randomBetween(a: number, b: number) {
-  return Math.random() * (b - a) + a
+// Different dimming patterns for more natural twinkling
+const DIM_PATTERNS = [
+  [0.4, 1, 0.4], // Standard dim
+  [0.5, 1, 0.5], // Less dim
+  [0.3, 1, 0.3], // More dim
+  [0.4, 1, 0.4, 1, 0.4], // Double pulse
+  [0.5, 1, 0.5, 1, 0.5], // Double pulse less dim
+]
+
+// Gaussian distribution for more natural star placement
+function gaussianRandom(mean: number, stdDev: number) {
+  let u = 0, v = 0
+  while (u === 0) u = Math.random()
+  while (v === 0) v = Math.random()
+  const num = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v)
+  return num * stdDev + mean
 }
 
 const stars = Array.from({ length: STAR_COUNT }).map((_, i) => {
-  const top = randomBetween(0, 100)
-  const left = randomBetween(0, 100)
-  const size = randomBetween(STAR_MIN_SIZE, STAR_MAX_SIZE)
-  const opacity = randomBetween(0.5, 1)
-  return { top, left, size, opacity, key: i }
+  // Use gaussian distribution for more natural star placement
+  const top = gaussianRandom(50, 30) // Center around 50% with spread
+  const left = gaussianRandom(50, 30)
+  const size = Math.random() * (STAR_MAX_SIZE - STAR_MIN_SIZE) + STAR_MIN_SIZE
+  const color = STAR_COLORS[Math.floor(Math.random() * STAR_COLORS.length)]
+  const duration = Math.random() * 4 + 3 // Random duration between 3-7s
+  const delay = Math.random() * 4 // Random delay between 0-4s
+  const dimPattern = DIM_PATTERNS[Math.floor(Math.random() * DIM_PATTERNS.length)]
+  
+  return { 
+    top, 
+    left, 
+    size, 
+    color,
+    duration,
+    delay,
+    dimPattern,
+    key: i 
+  }
 })
 
 export default function StarsBackground() {
   return (
     <div className="pointer-events-none absolute inset-0 z-0 hidden dark:block">
       {stars.map(star => (
-        <div
+        <motion.div
           key={star.key}
           style={{
             position: 'absolute',
-            top: `${star.top}%`,
-            left: `${star.left}%`,
+            top: `${Math.max(0, Math.min(100, star.top))}%`,
+            left: `${Math.max(0, Math.min(100, star.left))}%`,
             width: `${star.size}px`,
             height: `${star.size}px`,
             borderRadius: '50%',
-            background: 'white',
-            opacity: star.opacity,
-            boxShadow: '0 0 6px 1px rgba(255,255,255,0.2)'
+            background: star.color,
+            boxShadow: `0 0 ${star.size * 2}px ${star.size}px ${star.color.replace(')', ', 0.2)')}`,
+          }}
+          animate={{
+            opacity: star.dimPattern,
+            scale: [0.9, 1.1, 0.9],
+          }}
+          transition={{
+            duration: star.duration,
+            repeat: Infinity,
+            repeatType: "reverse",
+            delay: star.delay,
+            ease: "easeInOut"
           }}
         />
       ))}
