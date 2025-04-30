@@ -61,7 +61,7 @@ export default function Contact() {
           }
         }}
       >
-        {contactCards.map((card, index) => (
+        {contactCards.map((card) => (
           <motion.div
             key={card.title}
             variants={{
