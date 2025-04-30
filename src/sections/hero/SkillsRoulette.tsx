@@ -45,7 +45,7 @@ const skills = [
   { icon: SiAtlassian, name: 'Atlassian' },
 ]
 
-const extendedSkills = [...skills, ...skills, ...skills]
+const extendedSkills = [...skills, ...skills]
 
 export default function SkillsRoulette() {
   return (
@@ -55,7 +55,7 @@ export default function SkillsRoulette() {
         <motion.div
           className="flex space-x-4"
           animate={{
-            x: [`0%`, `-${100 / 3}%`],
+            x: [`0%`, `-${100 / 2}%`],
           }}
           transition={{
             x: {
@@ -66,15 +66,13 @@ export default function SkillsRoulette() {
             },
           }}
           style={{
-            width: `${skills.length * 3 * 140}px`, // Approximate width for each item
+            width: `${skills.length * 2 * 140}px`,
+            willChange: 'transform',
           }}
         >
           {extendedSkills.map((skill, index) => (
             <motion.div
               key={`${skill.name}-${index}`}
-              drag="x"
-              dragElastic={0.3}
-              dragSnapToOrigin
               whileTap={{ scale: 0.95 }}
               className="flex min-w-[120px] cursor-pointer items-center gap-2 rounded-lg border border-gray-300 bg-brand-light/80 px-3 py-1.5 shadow-sm transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:scale-105 hover:border-brand-secondary/40 hover:bg-brand-light/30 dark:border-brand-dark-muted/30 dark:bg-brand-dark/40 dark:hover:border-brand-secondary/40 dark:hover:bg-brand-dark/60"
             >
